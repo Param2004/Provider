@@ -15,7 +15,7 @@ export default function Login() {
         </button>
       </Link>
         <div className="flex items-center gap-2">
-          <img src="src/assets/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
+          <img src="/public/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
           <span className="text-lg font-medium">CollegeConnect</span>
         </div>
       </header>
@@ -27,7 +27,7 @@ export default function Login() {
             {/* Left Side - Illustration */}
             <div className="hidden md:block">
               <img
-                src="src/assets/images/login.png"
+                src="/public/images/login.png"
                 alt="Login Illustration"
                 className="w-full h-auto object-contain"
               />

@@ -24,7 +24,7 @@ export default function VerifyOTP() {
         </button>
       </Link>
       <div className="flex items-center gap-2">
-        <img src="src/assets/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
+        <img src="/public/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
         <span className="text-lg font-medium">CollegeConnect</span>
       </div>
     </header>
@@ -39,7 +39,7 @@ export default function VerifyOTP() {
 
           <div className="flex justify-center">
             <img
-              src="src/assets/images/otp.png"
+              src="/public/images/otp.png"
               alt="Security Illustration"
               className="w-3/4 h-auto object-contain"
             />
