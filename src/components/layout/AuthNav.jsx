@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2">
               <img
-                src="/images/logo.png"
+                src="/assets/images/logo.png"
                 alt="College Connect Logo"
                 className="h-6 w-auto"
               />
