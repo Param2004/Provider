@@ -19,7 +19,7 @@ export default function ResetEmail() {
           {/* Logo */}
           <div className="mb-8 flex justify-center">
             <img
-              src="https://s3-alpha-sig.figma.com/img/24b1/c630/1c0c754a0d521c8fc8309692577970e8?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UFJCJg5Lc9Z9tqj8TeewrYeW9VXCz~H5lOnIt8vx4Sn5g~CWTogayHPSSn-K25c8HCRO22fkBTqrSJxItxKzET5YmcJnxFkNiqmvxwfFxNTZYjdMS2-A56Jte3WRZ5QKtlQjSrT69c74Xdb66rTONJt0Bh0D6P-P5nDLxx9D7p1ehYp0CEOWVPvxZhJQeKEklocaMZ1ysr~6o5YyXmlgaXeBuqClIf8iItMg2x~5Z0Mhk6Cq-KQRPgakgsPxykmOA~cwDVrPTstSLDy6ukbrPVgB4NBEXLtQj2CafWXmtbkywiRJuH~t~wmeL3lV4XfoD8Zxvzk-jCYBNPHviU9cfA__"
+              src=""
               alt="College Connect Logo"
               className="h-auto w-[180px]"
             />

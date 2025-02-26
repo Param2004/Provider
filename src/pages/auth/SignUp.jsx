@@ -13,7 +13,7 @@ export default function CreateAccount() {
           <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700">
             <ChevronLeft className="h-5 w-5" />
             <div className="flex items-center gap-2">
-              <img src="/public/images/logo.png" alt="College Connect Logo" className="h-6 w-6" />
+              <img src="/images/logo.png" alt="College Connect Logo" className="h-6 w-6" />
               <span className="font-medium">CollegeConnect</span>
             </div>
           </Link>
@@ -25,7 +25,7 @@ export default function CreateAccount() {
             {/* Left Side - Illustration */}
             <div className="flex items-center justify-center rounded-xl bg-slate-50 p-8">
               <img
-                src="/public/images/register.png"
+                src="/images/register.png"
                 alt="Create Account Illustration"
                 className="w-full max-w-md"
               />

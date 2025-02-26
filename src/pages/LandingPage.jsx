@@ -22,7 +22,7 @@ export default function LandingPage() {
             </button> */}
           </div>
           <img 
-            src="/public/images/home_1.png" 
+            src="/images/home_1.png" 
             alt="College Connect Meeting Illustration" 
             className="sm:max-w-[50%] hidden sm:block" 
           />
@@ -45,7 +45,7 @@ export default function LandingPage() {
         <section className="bg-[#f8f8ff] py-16">
           <div className="flex justify-between items-center mx-auto lg:px-16 md:px-8 px-4">
             <img 
-              src="/public/images/home_2.png" 
+              src="/images/home_2.png" 
               alt="Alumni Grid Illustration" 
               className="rounded-xl lg:max-w-[60%] md:max-w-[50%] max-w-[40%]" 
             />
