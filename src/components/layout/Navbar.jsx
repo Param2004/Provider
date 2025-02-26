@@ -93,7 +93,7 @@ export default function Example() {
         <div className="mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-16 md:justify-start md:space-x-10">
         <div className="flex items-center gap-2 text-xl font-bold">
             <img 
-              src="src/assets/images/logo.png" 
+              src="../../assets/images/logo.png" 
               alt="CollegeConnect Logo" 
               className="w-10 h-10" 
             />
