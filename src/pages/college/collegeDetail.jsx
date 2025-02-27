@@ -30,7 +30,7 @@ export default function CollegeDetails(){
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <div className="text-right">
                     <div className="font-medium">Ratings</div>
                     <div className="text-lg font-bold">4.5/5</div>
@@ -38,7 +38,7 @@ export default function CollegeDetails(){
                   <button className="p-2 hover:bg-gray-100 rounded-full">
                     <BookmarkSimple className="h-5 w-5" />
                   </button>
-                </div>
+                </div> */}
               </div>
               {/* About Section */}
               <section className="mb-12">

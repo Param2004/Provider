@@ -1,0 +1,90 @@
+import Navbar from "../components/layout/Navbar";
+import CollegeSlider from "../components/college/CollegeSlider";
+import Footer from "../components/layout/Footer";
+
+
+
+const CollegePage = () => {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar />
+  
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-r from-blue-200 to-purple-200 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="flex items-center gap-2 text-sm text-blue-900 mb-4">
+              <a href="/">Home</a>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <span>Colleges</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-blue-900 mb-4">Colleges</h1>
+          </div>
+        </div>
+  
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="assets/images/collegeLP1.png" alt="Students celebrating admission" className="w-full max-w-md mx-auto" />
+            </div>
+  
+            <div>
+              <h2 className="text-violet-600 text-xl mb-6">A smarter, better way to live</h2>
+  
+              <h3 className="text-4xl md:text-6xl font-bold mb-6">
+                <span className="text-blue-900">COLLEGE ADMISSION </span>
+                <span className="bg-gradient-to-r from-violet-600 to-violet-400 bg-clip-text text-transparent">
+                  MADE AT EASE
+                </span>
+              </h3>
+  
+              <p className="text-gray-700 text-lg mb-8">
+                A platform that connects You with Mentors "DIRECTLY" from your dream colleges. Connect and ask every
+                doubt! Get Clarity on your college selections
+              </p>
+  
+              <div className="flex gap-4">
+                <a href="#" className="inline-block">
+                  <img src="/app-store.png" alt="Download on App Store" className="h-10 w-auto" />
+                </a>
+                <a href="#" className="inline-block">
+                  <img src="/play-store.png" alt="Get it on Google Play" className="h-10 w-auto" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <CollegeSlider />
+  
+        {/* Floating Action Buttons */}
+        <div className="fixed right-4 bottom-4 flex flex-col gap-2">
+          <button className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+          </button>
+          <button className="w-12 h-12 bg-violet-600 text-white rounded-full flex items-center justify-center hover:bg-violet-700 transition-colors">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+  
+  export default CollegePage;  

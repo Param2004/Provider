@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
   BookmarkAltIcon,
   BriefcaseIcon,
@@ -36,7 +36,7 @@ const solutions = [
     href: '/about-us',
     icon: CursorClickIcon,
   },
-  { name: 'College', description: "Your customers' data will be safe and secure.", href: '/college', icon: ShieldCheckIcon },
+  { name: 'College', description: "Your customers' data will be safe and secure.", href: '/college-home', icon: ShieldCheckIcon },
   {
     name: 'College Predictor',
     description: "Connect with third-party tools that you're already using.",
@@ -105,12 +105,63 @@ export default function Example() {
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
+
+
           <div className="hidden lg:flex-1 lg:flex lg:justify-center">
+  <NavLink
+    to="/"
+    className={({ isActive }) =>
+      classNames(
+        'transition duration-300 hover:-translate-y-0.5 px-5',
+        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+      )
+    }
+  >
+    Home
+  </NavLink>
+  <NavLink
+    to="/about-us"
+    className={({ isActive }) =>
+      classNames(
+        'transition duration-300 hover:-translate-y-0.5 px-5',
+        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+      )
+    }
+  >
+    About Us
+  </NavLink>
+  <NavLink
+    to="/college-home"
+    className={({ isActive }) =>
+      classNames(
+        'transition duration-300 hover:-translate-y-0.5 px-5',
+        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+      )
+    }
+  >
+    College
+  </NavLink>
+  <NavLink
+    to="/college-predictor"
+    className={({ isActive }) =>
+      classNames(
+        'transition duration-300 hover:-translate-y-0.5 px-5',
+        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+      )
+    }
+  >
+    College Predictor
+  </NavLink>
+</div>
+
+
+
+          {/* <div className="hidden lg:flex-1 lg:flex lg:justify-center">
             <Link to="/" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">Home</Link>
             <Link to="/about-us" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">About Us</Link>
             <Link to="/college" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">College</Link>
             <Link to="#" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">College Predictor</Link>
-          </div>
+          </div> */}
           <div className="lg:flex items-center md:ml-12 hidden">
             <Link to="/login" className="text-base font-medium text-gray-500 hover:text-indigo-600 transition duration-300 hover:-translate-y-0.5">
               Log in
@@ -143,7 +194,7 @@ export default function Example() {
               <div className="flex items-center justify-between">
               <div className="flex items-center  gap-2 text-xl font-bold">
                 <img 
-                src="src/assets/images/logo.png" 
+                src="assets/images/logo.png" 
                 alt="CollegeConnect Logo" 
                 className="w-10 h-10" 
                 />

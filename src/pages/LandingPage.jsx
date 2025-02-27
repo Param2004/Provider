@@ -1,7 +1,27 @@
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
+import { Link } from "react-router-dom"
+
+
 
 export default function LandingPage() {
+
+  const navItems = [
+    { name: "Alumni", path: "/alumni" },
+    { name: "Faculty", path: "/faculty" },
+    { name: "Student", path: "/student" },
+    { name: "Counsellor", path: "/counsellor" },
+  ];
+  //            <NavLink
+  //             to={item.path}
+  //             className={({ isActive }) =>
+  //               `px-4 py-2 rounded-lg transition ${
+  //                 isActive ? "text-indigo-600 underline" : "text-indigo-600 hover:text-indigo-800"
+  //               }`
+  //             }
+  //           >
+  //             {item.name}
+  //           </NavLink>
     return (
       <div>
       <Navbar />
@@ -34,10 +54,12 @@ export default function LandingPage() {
               <h2 className="inline lg:text-5xl md:text-4xl text-2xl font-bold text-indigo-600">Connect </h2>
               <span className="lg:text-5xl md:text-4xl text-2xl"> with</span>
             </div>
-            {['Alumni', 'Faculty', 'Student', 'Counsellor'].map((item) => (
-              <div key={item} className="text-xl text-gray-700 transition duration-300 hover:-translate-y-0.5 hover:text-indigo-600 active:text-indigo-600  cursor-pointer md:block hidden">
-                {item}
+            {navItems.map((item) => (
+              <Link to={item.path}>
+              <div key={item.name} className="text-xl text-gray-700 transition duration-300 hover:-translate-y-0.5 hover:text-indigo-600 active:text-indigo-600  cursor-pointer md:block hidden">
+                {item.name}
               </div>
+              </Link>
             ))}
           </div>
         </section>

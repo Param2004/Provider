@@ -8,9 +8,11 @@ import Profile from '../components/layout/Profile';
 import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import College from '../pages/college/College';
+import CollegeLP from '../pages/CollegeLP';
 import Counsellor from '../pages/counsellor/Counsellor';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import CollegeDetails from '../pages/college/collegeDetail';
+import CollegePredictor from '../pages/college/CollegePredictor';
 // import ResetEmail from '../pages/ResetEmail';
 export default function Endpoints() {
   return (
@@ -24,10 +26,12 @@ export default function Endpoints() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/college" element={<College />} />
+        <Route path="/colleges" element={<College />} />
+        <Route path="/college-home" element={<CollegeLP />} />
         <Route path="/counsellor" element={<Counsellor />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/college/:id" element={<CollegeDetails />} />
+        <Route path="/college-predictor" element={<CollegePredictor />} />
         {/* <Route path="/reset-email" element={<ResetEmail />} /> */}
       </Routes>
     </Router>
