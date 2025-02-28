@@ -11,7 +11,7 @@ import College from '../pages/college/College';
 // import CollegeLP from '../pages/CollegeLP';
 import Counsellor from '../pages/counsellor/Counsellor';
 import ForgotPassword from '../pages/auth/ForgotPassword';
-import CollegeDetails from '../pages/college/CollegeDetail';
+import CollegeDetails from '../pages/college/CollegeDetails';
 import CollegePredictor from '../pages/college/CollegePredictor';
 import Staff from '../pages/college/CollegeStaff';
 import ScrollToTop from '../components/ScrollToTop'

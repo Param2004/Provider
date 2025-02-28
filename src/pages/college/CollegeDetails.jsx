@@ -1,5 +1,4 @@
 import Navbar from "../../components/layout/Navbar";
-import { Bell, BookmarkSimple, CaretDown, MagnifyingGlass } from "@phosphor-icons/react"
 import { useParams } from "react-router-dom";
 import faqData from "../../data/faqData";
 
@@ -26,19 +25,9 @@ export default function CollegeDetails(){
                   <div>
                     <h1 className="text-2xl font-bold mb-1">{college.title}</h1>
                     <p className="text-gray-600 mb-4">{college.location}
-                    {/* Knowledge Park 3, Greater Noida | NAAC "A++" | */}
                     </p>
                   </div>
                 </div>
-                {/* <div className="flex items-center gap-4">
-                  <div className="text-right">
-                    <div className="font-medium">Ratings</div>
-                    <div className="text-lg font-bold">4.5/5</div>
-                  </div>
-                  <button className="p-2 hover:bg-gray-100 rounded-full">
-                    <BookmarkSimple className="h-5 w-5" />
-                  </button>
-                </div> */}
               </div>
               {/* About Section */}
               <section className="mb-12">
