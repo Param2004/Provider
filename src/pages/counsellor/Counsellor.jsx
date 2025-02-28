@@ -1,4 +1,4 @@
-import Navbar from "../../components/layout/Navbar"
+import Navbar from "../../components/layout/AuthNav"
 import Footer from "../../components/layout/Footer"
 
 

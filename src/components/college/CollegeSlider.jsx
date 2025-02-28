@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Data from "../../data/faqData";
+import { Link } from "react-router-dom";
 
 function CollegeSlider() {
 
@@ -98,12 +99,12 @@ function CollegeSlider() {
       </div>
 
       <div className="flex justify-center mt-8">
-        <a
-          href="/colleges"
+        <Link
+          to="/colleges"
           className="bg-[#6366f1] text-white px-8 py-3 rounded-md hover:bg-[#4f46e5] transition-colors"
         >
           Browse All
-        </a>
+        </Link>
       </div>
     </section>
   )

@@ -22,6 +22,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { Phone, MessageCircle, ArrowUp } from "lucide-react"
 
 const solutions = [
   {
@@ -86,7 +87,42 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+
+
+  const FloatingActions = () => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+  
+    return (
+      <div className="fixed bottom-4 right-4 flex flex-col gap-2">
+        <button
+          onClick={() => window.open("https://wa.me/+917303831326", "_blank")}
+          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors"
+        >
+          <MessageCircle className="h-5 w-5" />
+        </button>
+        <button
+          onClick={() => window.open("tel:+917303831326")}
+          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors"
+        >
+          <Phone className="h-5 w-5" />
+        </button>
+        <button
+          onClick={scrollToTop}
+          className="p-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white transition-colors"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
+      </div>
+    )
+  }
+
+
+
+
   return (
+    <>
     <Popover className="relative bg-white">
       <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
       <div className="relative z-20">
@@ -277,5 +313,7 @@ export default function Example() {
         </Popover.Panel>
       </Transition>
     </Popover>
+    <FloatingActions />
+    </>
   )
 }

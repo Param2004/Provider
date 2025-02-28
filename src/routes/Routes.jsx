@@ -11,12 +11,16 @@ import College from '../pages/college/College';
 import CollegeLP from '../pages/CollegeLP';
 import Counsellor from '../pages/counsellor/Counsellor';
 import ForgotPassword from '../pages/auth/ForgotPassword';
-import CollegeDetails from '../pages/college/collegeDetail';
+import CollegeDetails from '../pages/college/CollegeDetail';
 import CollegePredictor from '../pages/college/CollegePredictor';
+import Staff from '../pages/college/CollegeStaff';
+import ScrollToTop from '../components/ScrollToTop'
+
 // import ResetEmail from '../pages/ResetEmail';
 export default function Endpoints() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/register" element={<CreateAccount />} />
         {/* <Route path="/preferences" element={<Preferences />} /> */}
@@ -29,6 +33,7 @@ export default function Endpoints() {
         <Route path="/colleges" element={<College />} />
         <Route path="/college-home" element={<CollegeLP />} />
         <Route path="/counsellor" element={<Counsellor />} />
+        <Route path="/staff" element={<Staff />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/college/:id" element={<CollegeDetails />} />
         <Route path="/college-predictor" element={<CollegePredictor />} />

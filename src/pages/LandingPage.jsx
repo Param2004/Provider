@@ -7,9 +7,9 @@ import { Link } from "react-router-dom"
 export default function LandingPage() {
 
   const navItems = [
-    { name: "Alumni", path: "/alumni" },
-    { name: "Faculty", path: "/faculty" },
-    { name: "Student", path: "/student" },
+    { name: "Alumni", path: "/staff" },
+    { name: "Faculty", path: "/staff" },
+    { name: "Student", path: "/staff" },
     { name: "Counsellor", path: "/counsellor" },
   ];
   //            <NavLink
