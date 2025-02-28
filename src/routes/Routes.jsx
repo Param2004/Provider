@@ -8,7 +8,7 @@ import Profile from '../components/layout/Profile';
 import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import College from '../pages/college/College';
-import CollegeLP from '../pages/CollegeLP';
+// import CollegeLP from '../pages/CollegeLP';
 import Counsellor from '../pages/counsellor/Counsellor';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import CollegeDetails from '../pages/college/CollegeDetail';
@@ -31,7 +31,7 @@ export default function Endpoints() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/colleges" element={<College />} />
-        <Route path="/college-home" element={<CollegeLP />} />
+        {/* <Route path="/college-home" element={<CollegeLP />} /> */}
         <Route path="/counsellor" element={<Counsellor />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

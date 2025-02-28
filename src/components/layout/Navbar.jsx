@@ -37,11 +37,11 @@ const solutions = [
     href: '/about-us',
     icon: CursorClickIcon,
   },
-  { name: 'College', description: "Your customers' data will be safe and secure.", href: '/college-home', icon: ShieldCheckIcon },
+  { name: 'College', description: "Your customers' data will be safe and secure.", href: '/colleges', icon: ShieldCheckIcon },
   {
     name: 'College Predictor',
     description: "Connect with third-party tools that you're already using.",
-    href: '#',
+    href: '/college-predictor',
     icon: ViewGridIcon,
   },
 ]
@@ -167,7 +167,7 @@ export default function Example() {
     About Us
   </NavLink>
   <NavLink
-    to="/college-home"
+    to="/colleges"
     className={({ isActive }) =>
       classNames(
         'transition duration-300 hover:-translate-y-0.5 px-5',
