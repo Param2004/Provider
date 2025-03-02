@@ -31,18 +31,18 @@ const solutions = [
     href: '/',
     icon: ChartBarIcon,
   },
-  {
-    name: 'About',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '/about-us',
-    icon: CursorClickIcon,
-  },
   { name: 'College', description: "Your customers' data will be safe and secure.", href: '/colleges', icon: ShieldCheckIcon },
   {
     name: 'College Predictor',
     description: "Connect with third-party tools that you're already using.",
     href: '/college-predictor',
     icon: ViewGridIcon,
+  },
+  {
+    name: 'About',
+    description: 'Speak directly to your customers in a more meaningful way.',
+    href: '/about-us',
+    icon: CursorClickIcon,
   },
 ]
 const callsToAction = [
@@ -95,7 +95,7 @@ export default function Example() {
     }
   
     return (
-      <div className="fixed bottom-4 right-4 flex flex-col gap-2">
+      <div className="fixed z-10 bottom-4 right-4 flex flex-col gap-2">
         <button
           onClick={() => window.open("https://wa.me/+917303831326", "_blank")}
           className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors"
@@ -144,51 +144,51 @@ export default function Example() {
 
 
           <div className="hidden lg:flex-1 lg:flex lg:justify-center">
-  <NavLink
-    to="/"
-    className={({ isActive }) =>
-      classNames(
-        'transition duration-300 hover:-translate-y-0.5 px-5',
-        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-      )
-    }
-  >
-    Home
-  </NavLink>
-  <NavLink
-    to="/about-us"
-    className={({ isActive }) =>
-      classNames(
-        'transition duration-300 hover:-translate-y-0.5 px-5',
-        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-      )
-    }
-  >
-    About Us
-  </NavLink>
-  <NavLink
-    to="/colleges"
-    className={({ isActive }) =>
-      classNames(
-        'transition duration-300 hover:-translate-y-0.5 px-5',
-        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-      )
-    }
-  >
-    College
-  </NavLink>
-  <NavLink
-    to="/college-predictor"
-    className={({ isActive }) =>
-      classNames(
-        'transition duration-300 hover:-translate-y-0.5 px-5',
-        isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-      )
-    }
-  >
-    College Predictor
-  </NavLink>
-</div>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                classNames(
+                  'transition duration-300 hover:-translate-y-0.5 px-5',
+                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                )
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/colleges"
+              className={({ isActive }) =>
+                classNames(
+                  'transition duration-300 hover:-translate-y-0.5 px-5',
+                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                )
+              }
+            >
+              College
+            </NavLink>
+            <NavLink
+              to="/college-predictor"
+              className={({ isActive }) =>
+                classNames(
+                  'transition duration-300 hover:-translate-y-0.5 px-5',
+                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                )
+              }
+            >
+              College Predictor
+            </NavLink>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                classNames(
+                  'transition duration-300 hover:-translate-y-0.5 px-5',
+                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                )
+              }
+            >
+              About Us
+            </NavLink>
+          </div>
 
 
 

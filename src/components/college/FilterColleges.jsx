@@ -26,7 +26,7 @@ const Banner = ({data, onFilterChange, onReset}) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Searching:", { searchTerm, location, course })
+    // console.log("Searching:", { searchTerm, location, course })
     if (searchTerm === "" && location === "" && course === ""
     ) {
       onReset(); // Call the reset function if the search query is empty
@@ -43,7 +43,7 @@ const Banner = ({data, onFilterChange, onReset}) => {
 
 
   return (
-    <div className="relative bg-gradient-to-b from-indigo-50 to-white">
+    <div className="bg-gradient-to-b from-indigo-100 to-purple-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">Search Colleges</h1>
 

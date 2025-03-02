@@ -32,11 +32,11 @@ const Property = () => {
             Showing <span className="text-indigo-600 font-medium">{filteredData.length}</span> colleges
           </p>
           <div className="flex items-center space-x-4">
-            <select className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            {/* <select className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
               <option value="relevance">Sort by Relevance</option>
               <option value="rating">Sort by Rating</option>
               <option value="fees">Sort by Fees</option>
-            </select>
+            </select> */}
             <div className="flex space-x-2">
               <button
                 onClick={() => setIsGridView(true)}

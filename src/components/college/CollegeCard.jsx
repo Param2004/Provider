@@ -4,8 +4,8 @@ import { MapPin, ArrowRight } from "lucide-react"
 const CollegeCard = ({ college, colActiv }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="relative h-48 w-full">
-        <img src={college.imgLink} alt={college.name} className="w-full h-full object-cover" />
+      <div className="h-48 w-full">
+        <img src={college.imgLink} alt={college.name} className="w-full h-full" />
       </div>
       <div className="p-6">
         <h2 className="text-xl line-clamp-1 font-bold text-[#1a237e] mb-2">{college.title}</h2>
@@ -30,7 +30,7 @@ const CollegeCard = ({ college, colActiv }) => {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm text-gray-600">NAAC Grade</p>
-            <p className="text-lg font-semibold">{college.naacGrade}</p>
+            <p className="text-lg text-indigo-600 font-semibold">{college.naacGrade}</p>
           </div>
           <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
             Details <ArrowRight className="h-4 w-4" />

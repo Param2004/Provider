@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { ChevronLeft, Eye, EyeOff, User } from "lucide-react";
+import { ChevronLeft, Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function CreateAccount() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -108,7 +109,7 @@ export default function CreateAccount() {
                   <p className="text-xs text-gray-500">Must be at least 8 characters.</p>
                 </div>
 
-                {/* Password Input */}
+                {/* Confirm Password Input */}
                 <div className="space-y-2">
                   <label htmlFor="password2" className="text-sm font-medium text-gray-900">
                     Confirm Password
@@ -116,16 +117,16 @@ export default function CreateAccount() {
                   <div className="relative">
                     <input
                       id="password2"
-                      type={showPassword ? "text" : "password"}
+                      type={showConfirmPassword ? "text" : "password"}
                       placeholder="Password"
                       className="w-full rounded-md border border-gray-200 px-3 py-2 pr-10 focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600"
                     />
                     <button
                       type="button"
-                      onClick={() => setShowPassword(!showPassword)}
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                     >
-                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                      {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
                   </div>
                   <p className="text-xs text-gray-500">Enter the Password again.</p>
@@ -140,6 +141,12 @@ export default function CreateAccount() {
                     Register
                   </button>
                 {/* </Link> */}
+                <div className="text-center text-sm">
+                  <span className="text-gray-600">Already have an account? </span>
+                  <Link to="/login" className="text-[#2c26b0] hover:text-[#2c26b0]/90 font-medium">
+                    Login
+                  </Link>
+                </div>
               </form>
             </div>
           </div>
