@@ -98,19 +98,19 @@ export default function Example() {
       <div className="fixed z-10 bottom-4 right-4 flex flex-col gap-2">
         <button
           onClick={() => window.open("https://wa.me/+917303831326", "_blank")}
-          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors z-10"
+          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors"
         >
           <MessageCircle className="h-5 w-5" />
         </button>
         <button
           onClick={() => window.open("tel:+917303831326")}
-          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors z-10"
+          className="p-3 rounded-full bg-green-500 hover:bg-green-600 text-white transition-colors"
         >
           <Phone className="h-5 w-5" />
         </button>
         <button
           onClick={scrollToTop}
-          className="p-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white transition-colors z-10"
+          className="p-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white transition-colors"
         >
           <ArrowUp className="h-5 w-5" />
         </button>
