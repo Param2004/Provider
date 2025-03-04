@@ -1,9 +1,36 @@
 import { useState } from "react"
 import { ArrowLeft, Eye, EyeOff } from "lucide-react"
 import { Link } from "react-router-dom"
+import axios from "axios"
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
+  const [obj, setObj] = useState({ phone: "", password: "" });
+  const [phoneValid, setPhoneValid] = useState(true);
+
+
+  const handleChange = (e) => { 
+    
+    const { name, value } = e.target;
+    setObj({ ...obj, [name]: value });
+    
+    if (name === "phone") {
+      setPhoneValid(/^[6-9]\d{9}$/.test(value));
+    }
+  
+  };
+
+  const handleSubmit = async (e) => {  
+
+    e.preventDefault();
+
+    console.log(obj); 
+
+    const result = await axios.post('http://localhost:3000/user/login', obj);
+
+    console.log(result);
+
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -40,7 +67,7 @@ export default function Login() {
                 <p className="text-gray-600">Enter your credentials</p>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
                 {/* Mobile Input */}
                 <div className="space-y-2">
@@ -54,7 +81,10 @@ export default function Login() {
                     <input
                       id="mobile"
                       type="tel"
-                      className="w-full rounded-r-md border border-gray-300 px-3 py-2 focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600"
+                      name="phone"
+                      required
+                      onChange={handleChange}
+                      className={`w-full rounded-md border px-3 py-2 pr-10 border-gray-300 focus:outline-none focus:ring-1 ${phoneValid ? 'focus:ring-indigo-600' : 'focus:ring-red-500'}`}
                     />
                     </div>
                   </div>
@@ -67,6 +97,9 @@ export default function Login() {
                       <input
                         id="password"
                         type={showPassword ? "text" : "password"}
+                        name="password"
+                        required
+                        onChange={handleChange}
                         placeholder="Password"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
@@ -94,6 +127,7 @@ export default function Login() {
                 <button
                   type="submit"
                   className="w-full bg-[#2c26b0] hover:bg-[#2c26b0]/90 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+                  disabled={ !phoneValid }
                 >
                   Login
                 </button>

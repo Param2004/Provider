@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -24,25 +25,25 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img
                 src="/assets/images/logo.png"
                 alt="College Connect Logo"
                 className="h-6 w-auto"
               />
               <span className="text-[#000000] text-lg font-medium">collegeconnect</span>
-            </a>
+            </Link>
           </div>
 
           {/* Search Bar */}
-          <div className="flex-1 max-w-2xl mx-8">
-            <div className="relative">
+          <div className="hidden sm:flex flex-1 mx-8">
+            <div className="relative w-full">
               <input
                 type="search"
                 placeholder="Search Alumni"
                 className="w-full bg-[#f6f7f9] px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200"
               />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+              <div className="absolute inset-y-0 right-0 flex items-center mr-10">
                 <svg className="h-5 w-5 text-[#757575]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -104,6 +105,26 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Search Bar */}
+      <div className="sm:hidden max-w-2xl mx-8">
+        <div className="relative">
+          <input
+            type="search"
+            placeholder="Search Alumni"
+            className="w-full bg-[#f6f7f9] px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200"
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center mr-10">
+            <svg className="h-5 w-5 text-[#757575]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
           </div>
         </div>
       </div>

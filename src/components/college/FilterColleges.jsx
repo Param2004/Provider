@@ -15,7 +15,7 @@ const Banner = ({data, onFilterChange, onReset}) => {
         } else {
           // Filter the data based on the search query
           const filteredData = data.filter((item) =>
-            item.title.toLowerCase().includes(searchTerm.toLowerCase()) && item.location.toLowerCase().includes(location.toLowerCase())
+            item.title.toLowerCase().includes(searchTerm.toLowerCase()) && item.location.toLowerCase()===location.toLowerCase()
           );
     
           // Call the parent component's callback to send the filtered data
@@ -33,7 +33,7 @@ const Banner = ({data, onFilterChange, onReset}) => {
     } else {
       // Filter the data based on the search query
       const filteredData = data.filter((item) =>
-        item.location.toLowerCase().includes(location.toLowerCase()) && item.title.toLowerCase().includes(searchTerm.toLowerCase())
+        item.location.toLowerCase()===location.toLowerCase() && item.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
       // Call the parent component's callback to send the filtered data
@@ -76,6 +76,7 @@ const Banner = ({data, onFilterChange, onReset}) => {
                 <option value="ghaziabad">Ghaziabad</option>
                 <option value="noida">Noida</option>
                 <option value="gurugram">Gurugram</option>
+                <option value="delhi">Delhi</option>
               </select>
               <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             </div>

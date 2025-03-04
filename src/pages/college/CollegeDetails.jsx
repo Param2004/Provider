@@ -1,13 +1,16 @@
 import Navbar from "../../components/layout/Navbar";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import faqData from "../../data/faqData";
 
 
 export default function CollegeDetails(){
     const { id } = useParams();
+    const [showMore, setShowMore] = useState(false);
     const college = faqData.find((c) => c.id.toString() === id);
 
     if (!college) return <p>College not found</p>;
+    const toggleShowMore = () => setShowMore(!showMore);
 
 
     return (
@@ -30,14 +33,75 @@ export default function CollegeDetails(){
                 </div>
               </div>
               {/* About Section */}
-              <section className="mb-12">
+              <section className="">
                 <h2 className="text-xl font-bold mb-4">About</h2>
                 <p className="text-gray-600">
                   {college.description}
                 </p>
               </section>
+
+
+              <section className="flex justify-between items-center">
+              <div className="">
+                <table className="table-fixed mt-12">
+                    <tr className="">
+                      <th className="text-indigo-600 border border-gray-600 p-2 text-left">Course</th>
+                      <td className="border border-gray-600 text-gray-700 p-2">B.Tech.</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">M.Tech.</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">BBA</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">MBA</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">BCA</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">MCA</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">PGDM</td>
+                    </tr>
+                    <tr className="">
+                      <th className="text-indigo-600 border border-gray-600 p-2 text-left">Seats</th>
+                      <td className="border border-gray-600 text-gray-700 p-2">320</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">120</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">180</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">60</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">120</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">120</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">180</td>
+                    </tr>
+                    <tr className="">
+                      <th className="text-indigo-600 border border-gray-600 p-2 text-left">Fees( in lakhs )</th>
+                      <td className="border border-gray-600 text-gray-700 p-2">2.20</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">2-3</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">1.5</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">2.5</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">1.2</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">1.5</td>
+                      <td className="border border-gray-600 text-gray-700 p-2">2-3</td>
+                    </tr>
+                </table>
+              </div>
+              <div className="">
+                <button className="bg-indigo-600 rounded py-2 px-6 cursor-pointer text-white" onClick={toggleShowMore}>
+                  {showMore ? "Show less" : "Know more"}
+                </button>
+              </div>
+              </section>
+
+
+              <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${showMore ? 'max-h-96 opacity-100 py-8' : 'max-h-0 opacity-0 py-0'}`}
+              >
+                {showMore && (
+                  <section className="mt-8">
+                    <h2 className="text-xl font-bold mb-4">Additional Information</h2>
+                    <p className="text-gray-600">
+                      This is some additional content about the college. You can add more details here like faculty highlights, campus facilities, or student life.
+                    </p>
+                  </section>
+                )}
+              </div>
+
+
+
+
               {/* Alumni Section */}
-              <section className="mb-12">
+              <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Alumni</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[1, 2, 3].map((i) => (
