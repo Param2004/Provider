@@ -38,7 +38,7 @@ const faqData = [
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/wtNtJaQ0PKw5W2zjNpTNYpqfTcZRXR0A0VT4l5Jh.png",
           ],
           mapLink:[
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56115.68726370801!2d77.41234684863278!3d28.472605599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb193588358f%3A0x8274cec5a1321578!2sGL%20Bajaj%20Institute%20of%20Technology%20%26%20Management!5e0!3m2!1sen!2sin!4v1710356407906!5m2!1sen!2sin" width="746"
+            <iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56115.68726370801!2d77.41234684863278!3d28.472605599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb193588358f%3A0x8274cec5a1321578!2sGL%20Bajaj%20Institute%20of%20Technology%20%26%20Management!5e0!3m2!1sen!2sin!4v1710356407906!5m2!1sen!2sin" width="746"
             height="312"
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             ],
@@ -262,8 +262,8 @@ const faqData = [
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/u9XB1r3zTiPhtKrIFx20Qx3c9Tm34Oh8fm1QmWFk.png",
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/wtNtJaQ0PKw5W2zjNpTNYpqfTcZRXR0A0VT4l5Jh.png",
           ],
-              mapLink:[
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28057.831532988042!2d77.46796485319535!3d28.472651155794495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea1a83be5989%3A0x6a3690bfa642b5c3!2sGALGOTIAS%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1710449051845!5m2!1sen!2sin" width="746" height="312" style="border:0;" allowfullscreen=""
+        mapLink:[
+            <iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28057.831532988042!2d77.46796485319535!3d28.472651155794495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea1a83be5989%3A0x6a3690bfa642b5c3!2sGALGOTIAS%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1710449051845!5m2!1sen!2sin" width="746" height="312"
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             ],
           gallery:[
@@ -560,7 +560,7 @@ const faqData = [
             "https://www.amity.edu/placement/images/coforge.jpg"
           ],
         mapLink:[
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8595126888026!2d77.32819157925921!3d28.54394212549748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce44e80a9461b%3A0x302ec8d3d5cb8d1a!2sAmity%20University%20Noida!5e0!3m2!1sen!2sin!4v1710449379430!5m2!1sen!2sin" width="746"
+            <iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8595126888026!2d77.32819157925921!3d28.54394212549748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce44e80a9461b%3A0x302ec8d3d5cb8d1a!2sAmity%20University%20Noida!5e0!3m2!1sen!2sin!4v1710449379430!5m2!1sen!2sin" width="746"
             height="312"
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             ],
@@ -912,7 +912,7 @@ const faqData = [
             "https://cxotoday.com/wp-content/uploads/2022/07/CXO-IBM.jpeg",
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3366410264434!2d77.48856747923924!3d28.46940682897479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea74cbe81503%3A0x3d100ac5d4e327a!2sKCC%20Institute%20of%20Technology%20%26%20Management!5e0!3m2!1sen!2sin!4v1710449544458!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3366410264434!2d77.48856747923924!3d28.46940682897479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea74cbe81503%3A0x3d100ac5d4e327a!2sKCC%20Institute%20of%20Technology%20%26%20Management!5e0!3m2!1sen!2sin!4v1710449544458!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -1070,12 +1070,6 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             },
 
         ],
-        reviews: [
-            {
-                name: "",
-                desc: ""
-            }
-        ],
         tag: ""
     }, {
         id: "3@4e",
@@ -1108,7 +1102,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://www.niet.co.in/images/training/opr-logo/l13.png"
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.5366163646686!2d77.48736717495046!3d28.463381891742902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb997d72ce1f%3A0x2b44d458049a6c97!2sNIET!5e0!3m2!1sen!2sin!4v1710449659847!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.5366163646686!2d77.48736717495046!3d28.463381891742902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb997d72ce1f%3A0x2b44d458049a6c97!2sNIET!5e0!3m2!1sen!2sin!4v1710449659847!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -1301,7 +1295,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://www.niet.co.in/images/training/opr-logo/l13.png"
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.6258871038985!2d77.49546812390908!3d28.460691929773187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1ddc0000001%3A0xfc29bf57c9c17cf1!2sGNIOT%20Group%20of%20Institutions!5e0!3m2!1sen!2sin!4v1710449730123!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.6258871038985!2d77.49546812390908!3d28.460691929773187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1ddc0000001%3A0xfc29bf57c9c17cf1!2sGNIOT%20Group%20of%20Institutions!5e0!3m2!1sen!2sin!4v1710449730123!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -1528,7 +1522,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/wtNtJaQ0PKw5W2zjNpTNYpqfTcZRXR0A0VT4l5Jh.png",
           ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.738064754174!2d77.49505052495027!3d28.457311392017015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1dc8b29c0e1%3A0x4ee84fe65c694f0!2sGALGOTIAS%20COLLEGE%20OF%20ENGINEERING%20AND%20TECHNOLOGY%2C%20Knowledge%20Park%20II%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1710449785075!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.738064754174!2d77.49505052495027!3d28.457311392017015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1dc8b29c0e1%3A0x4ee84fe65c694f0!2sGALGOTIAS%20COLLEGE%20OF%20ENGINEERING%20AND%20TECHNOLOGY%2C%20Knowledge%20Park%20II%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1710449785075!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -1771,7 +1765,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://southsudan.shardauniversity.org/attachments/testimonial_images/Hughes.png",
           ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.214987248482!2d77.48033507495083!3d28.47307149130518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0f7b91511b%3A0x486f13bd49e5e7ae!2sSHARDA%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1710449851829!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.214987248482!2d77.48033507495083!3d28.47307149130518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0f7b91511b%3A0x486f13bd49e5e7ae!2sSHARDA%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1710449851829!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -2137,7 +2131,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.7095713487215!2d77.49074207495029!3d28.45817009197837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc117b9edb9ef%3A0xdab6d36968d2fd8b!2sLloyd%20Institute%20of%20Engineering%20%26%20Technology!5e0!3m2!1sen!2sin!4v1710449956145!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.7095713487215!2d77.49074207495029!3d28.45817009197837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc117b9edb9ef%3A0xdab6d36968d2fd8b!2sLloyd%20Institute%20of%20Engineering%20%26%20Technology!5e0!3m2!1sen!2sin!4v1710449956145!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -2352,7 +2346,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202312/thumbnail_ebix-sixteen_nine.jpg?size=948:533",
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3614880480895!2d77.4861216749507!3d28.468658291504582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0bb627ba3f%3A0x98ceba75b8e54979!2sITS%20Engineering%20College!5e0!3m2!1sen!2sin!4v1710450009318!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.3614880480895!2d77.4861216749507!3d28.468658291504582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0bb627ba3f%3A0x98ceba75b8e54979!2sITS%20Engineering%20College!5e0!3m2!1sen!2sin!4v1710450009318!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -2545,7 +2539,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://images.collegedunia.com/public/college_data/images/company_image/1551165399jaypee_logo.png",
         ],
             mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5555435712977!2d77.53691617494717!3d28.372283995852293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc74a1da523db%3A0xf0736e7a99d63eb0!2sNoida%20International%20University!5e0!3m2!1sen!2sin!4v1710450068432!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5555435712977!2d77.53691617494717!3d28.372283995852293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc74a1da523db%3A0xf0736e7a99d63eb0!2sNoida%20International%20University!5e0!3m2!1sen!2sin!4v1710450068432!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -2960,7 +2954,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://1000logos.net/wp-content/uploads/2023/03/HCL-logo.png",
         ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.453384005185!2d77.48043537495063!3d28.465889691629602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0f70009f75%3A0x22c86d7a6f81b56b!2sJIMS%20Engineering%20Management%20Technical%20Campus%20(JEMTEC)!5e0!3m2!1sen!2sin!4v1710450142844!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.453384005185!2d77.48043537495063!3d28.465889691629602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea0f70009f75%3A0x22c86d7a6f81b56b!2sJIMS%20Engineering%20Management%20Technical%20Campus%20(JEMTEC)!5e0!3m2!1sen!2sin!4v1710450142844!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -3180,7 +3174,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         imgLink: "https://images.shiksha.com/mediadata/images/articles/1616417013phpXLrcIr.jpeg",
         published: "2 Nov",
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.6706074618637!2d76.8136269214101!3d28.247675812411735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d478e1d59b7fb%3A0xb1787ccb5563c223!2sBML%20Munjal%20University%20(BMU)!5e0!3m2!1sen!2sin!4v1710450222472!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.6706074618637!2d76.8136269214101!3d28.247675812411735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d478e1d59b7fb%3A0xb1787ccb5563c223!2sBML%20Munjal%20University%20(BMU)!5e0!3m2!1sen!2sin!4v1710450222472!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -3293,7 +3287,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDxThhRhhY8oLyy_Q_m4aRKrNzYMqLx_F_HA8mrxyL2Q&s"
             ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.609537894535!2d77.49295417495043!3d28.461184591842226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1ddc0000001%3A0x252d5a10a01cbb66!2sGNIT%20College%20of%20Management!5e0!3m2!1sen!2sin!4v1710450302863!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.609537894535!2d77.49295417495043!3d28.461184591842226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1ddc0000001%3A0x252d5a10a01cbb66!2sGNIT%20College%20of%20Management!5e0!3m2!1sen!2sin!4v1710450302863!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -3547,7 +3541,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://inc42.com/wp-content/uploads/2023/04/OYO-feature-.png",
         ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112176.67919435464!2d77.27824128152989!3d28.524049071756863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e13dcbf0eb%3A0xfcf1c4d9749a78b4!2sIILM%20Engineering%2C%20IILM%20University%2C%20Greater%20Noida!5e0!3m2!1sen!2sin!4v1710450351612!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112176.67919435464!2d77.27824128152989!3d28.524049071756863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e13dcbf0eb%3A0xfcf1c4d9749a78b4!2sIILM%20Engineering%2C%20IILM%20University%2C%20Greater%20Noida!5e0!3m2!1sen!2sin!4v1710450351612!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -3799,7 +3793,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202309/accenture-mars-factory-future-sixteen_nine.jpg",
         ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112176.41110346785!2d77.27824102938467!3d28.52430101421379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce8ba81555555%3A0x738ac1a025bee778!2sIIMT%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1710450419173!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112176.41110346785!2d77.27824102938467!3d28.52430101421379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce8ba81555555%3A0x738ac1a025bee778!2sIIMT%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1710450419173!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],
@@ -4019,7 +4013,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://media.licdn.com/dms/image/C4D0BAQHt-W7hWUpwog/company-logo_200_200/0/1638305973657?e=1716422400&v=beta&t=roLJFigxBw_RqAk9IPp0742Uw_BfHovQQq_wj19Hg6Y",
         ],
         mapLink:[
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.1210501584515!2d77.49631667924103!3d28.4759009286721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea71af86fa39%3A0x43f416ca4cad834f!2sIEC%20College%20Of%20Engineering%20%26%20Technology!5e0!3m2!1sen!2sin!4v1710450464202!5m2!1sen!2sin" width="746"
+<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.1210501584515!2d77.49631667924103!3d28.4759009286721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea71af86fa39%3A0x43f416ca4cad834f!2sIEC%20College%20Of%20Engineering%20%26%20Technology!5e0!3m2!1sen!2sin!4v1710450464202!5m2!1sen!2sin" width="746"
 height="312"
 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 ],

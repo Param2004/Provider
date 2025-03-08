@@ -214,7 +214,7 @@ export default function Example() {
                 </div>
 
                 {/* Contact form */}
-                <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
+                <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12 z-10">
                   <h3 className="text-lg font-medium text-warm-gray-900">Send us a message</h3>
                   <form action="#" method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                     <div>
@@ -246,19 +246,19 @@ export default function Example() {
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-warm-gray-900">
+                      <label htmlFor="phone" className="block text-sm font-medium text-warm-gray-900">
                         Phone
                       </label>
                       <div className="flex mt-1">
-                      <div className="flex items-center bg-white px-3 text-gray-500">
+                      <div className="flex items-center bg-white px-3 text-gray-900">
                         +91
                       </div>
                         <input
-                          id="email"
-                          name="email"
-                          type="email"
+                          id="phone"
+                          name="phone"
+                          type="phone"
                           required
-                          autoComplete="tel"         className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-warm-gray-300 rounded-md"
+                          autoComplete="tel"        className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border-warm-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -309,7 +309,7 @@ export default function Example() {
                           id="message"
                           name="message"
                           rows={4}
-                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 focus:ring-indigo-500 focus:border-indigo-500 border border-warm-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm text-warm-gray-900 border border-warm-gray-300 rounded-md  focus:ring-indigo-500 focus:border-indigo-500"
                           aria-describedby="message-max"
                           defaultValue={''}
                         />

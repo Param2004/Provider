@@ -36,8 +36,8 @@ export default function Navbar() {
           </div>
 
           {/* Search Bar */}
-          <div className="hidden sm:flex flex-1 mx-8">
-            <div className="relative w-full">
+          <div className="hidden sm:flex flex-1 mx-8 justify-around">
+            <div className="relative sm:min-w-3/4 lg:min-w-1/2">
               <input
                 type="search"
                 placeholder="Search Alumni"
