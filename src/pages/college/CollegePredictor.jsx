@@ -42,7 +42,7 @@ const CollegePredictor = () => {
     <>
       <Navbar />
       {/* Results Section */}
-
+      <iframe src="https://rank-predicter.vercel.app/" width="100%" className="mt-5 md:mt-10 h-280 md:h-210"></iframe>
       <FloatingActions />
       <Footer />
     </>

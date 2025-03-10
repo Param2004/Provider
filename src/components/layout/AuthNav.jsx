@@ -31,7 +31,7 @@ export default function Navbar() {
                 alt="College Connect Logo"
                 className="h-6 w-auto"
               />
-              <span className="text-[#000000] text-lg font-medium">collegeconnect</span>
+              <span className="text-[#000000] text-lg font-medium">CollegeConnect</span>
             </Link>
           </div>
 
@@ -93,15 +93,15 @@ export default function Navbar() {
               {/* Dropdown Menu */}
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 border border-gray-200">
-                  <a href="#profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Profile
-                  </a>
-                  <a href="#meetings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  </Link>
+                  <Link to="#meetings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Upcoming meetings
-                  </a>
-                  <a href="#logout" className="block px-4 py-2 text-sm text-[#ff4747] hover:bg-gray-100">
+                  </Link>
+                  <Link to="#logout" className="block px-4 py-2 text-sm text-[#ff4747] hover:bg-gray-100">
                     Log Out
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
