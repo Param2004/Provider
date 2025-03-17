@@ -1,10 +1,5 @@
-// import FilterColleges from "../../components/college/FilterColleges";
-// import faqData from "../../data/faqData";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer"
-// import { useState } from 'react';
-// import { Phone, MessageCircle, ArrowUp } from "lucide-react"
-// import { Link } from "react-router-dom";
 
 const CollegePredictor = () => {
 
