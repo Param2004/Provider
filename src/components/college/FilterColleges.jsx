@@ -9,15 +9,13 @@ const Banner = ({data, onFilterChange, onReset}) => {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-        if (searchTerm === "" && location === "" && course === ""
-        ) {
+        if (searchTerm === "" && location === "" && course === "") {
           onReset(); // Call the reset function if the search query is empty
         } else {
           // Filter the data based on the search query
           const filteredData = data.filter((item) =>
             item.title.toLowerCase().includes(searchTerm.toLowerCase()) && item.location.toLowerCase()===location.toLowerCase()
           );
-    
           // Call the parent component's callback to send the filtered data
           onFilterChange(filteredData);
         }
