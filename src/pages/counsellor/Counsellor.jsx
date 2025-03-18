@@ -1,9 +1,35 @@
-import Navbar from "../../components/layout/AuthNav"
-import Footer from "../../components/layout/Footer"
-
+import Navbar from "../../components/layout/AuthNav";
+import Footer from "../../components/layout/Footer";
+import React, { useState } from "react";
+import { CheckCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import CS from "../../components/CallScheduler";
 
 
 const CounsellorPage = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+    setIsSubmitted(false);
+  };
+
+  const closePopup = () => setIsOpen(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+
+    // Simulate a delay before closing the popup
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 1500);
+  };
+
+
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -86,14 +112,60 @@ const CounsellorPage = () => {
                   <span className="text-indigo-600 font-medium">Counselling Fee</span>
                   <span className="ml-2">- Rs 500 / 2 hr</span>
                 </div>
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <button onClick={openPopup} className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                   Schedule a Call
                 </button>
               </div>
             </div>
           ))}
         </div>
+        <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-lg"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <h2 className="text-lg font-semibold mb-4 text-center">
+                {isSubmitted ? "Success!" : "Fill the Form"}
+              </h2>
+
+              {isSubmitted ? (
+                <motion.div
+                  className="flex flex-col items-center"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 100 }}
+                >
+                  <CheckCircle size={50} className="text-green-500" />
+                  <p className="text-green-600 mt-2">Submitted Successfully!</p>
+                </motion.div>
+              ) : (
+                <CS />
+              )}
+
+              {!isSubmitted && (
+                <button
+                  onClick={closePopup}
+                  className="mt-4 text-red-500 underline hover:text-red-700"
+                >
+                  Close
+                </button>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       </main>
+
       <Footer />
     </div>
   )

@@ -23,8 +23,9 @@ import {
   X,
   Camera,
 } from "lucide-react";
-import Navbar from "./AuthNav";
-import Footer from "./Footer";
+import { Link } from "react-router-dom";
+import Navbar from "../components/layout/AuthNav";
+import Footer from "../components/layout/Footer";
 
 const Profile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,41 +58,6 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <Navbar />
-      {/* Navigation Bar */}
-      {/* <nav className="flex items-center justify-between p-4 border-b border-gray-200 bg-white shadow-sm">
-        <div className="flex items-center space-x-6">
-          <div className="text-xl font-bold">
-            <span>Unikon</span>
-            <span className="text-teal-500">.ai</span>
-          </div>
-          <div className="flex items-center space-x-1 cursor-pointer">
-            <span>UniShorts</span>
-            <ChevronDown className="h-4 w-4" />
-          </div>
-          <div className="flex items-center space-x-1 cursor-pointer">
-            <span>Find people</span>
-            <ChevronDown className="h-4 w-4" />
-          </div>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <div className="relative flex items-center">
-            <div className="absolute left-3 flex items-center justify-center h-6 w-6 rounded-full bg-gray-200">
-              <span className="text-xs">AI</span>
-            </div>
-            <input
-              type="text"
-              placeholder="How to build a strong|"
-              className="pl-12 pr-4 py-2 bg-gray-100 rounded-full w-80 focus:outline-none border border-gray-200"
-            />
-            <Search className="absolute right-3 h-4 w-4 text-gray-500" />
-          </div>
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg bg-white hover:bg-gray-50">
-            <Download className="h-4 w-4" />
-            <span>Download</span>
-          </button>
-        </div>
-      </nav> */}
 
       {/* Main Content */}
       <main className="max-w-5xl mx-auto p-6">
@@ -105,7 +71,7 @@ const Profile = () => {
                   <div className="h-6 w-6 rounded-full bg-yellow-500"></div>
                   <div className="h-6 w-6 rounded-full bg-gray-400"></div>
                 </div>
-                <span className="text-sm">1.0k Konnections</span>
+                <span className="text-sm">1.0k Connections</span>
               </div>
               <button
                 className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
@@ -125,18 +91,20 @@ const Profile = () => {
                 {isMenuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-10 overflow-hidden origin-top-right animate-in slide-in-from-top-2 duration-200">
                     <div className="py-1">
+                    <Link to="/edit-profile">
                       <button className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150">
                         <Edit className="h-4 w-4 mr-2" />
                         Edit Profile
                       </button>
-                      <button className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150">
+                    </Link>
+                      {/* <button className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150">
                         <Copy className="h-4 w-4 mr-2" />
                         Copy Profile Link
-                      </button>
-                      <button className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors duration-150">
+                      </button> */}
+                      {/* <button className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition-colors duration-150">
                         <X className="h-4 w-4 mr-2" />
                         Report Profile
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 )}
@@ -188,7 +156,7 @@ const Profile = () => {
                   <h1 className="text-3xl font-bold">Arjun Vaidya</h1>
                   <div className="flex items-center gap-1 text-teal-500">
                     <CheckCircle className="h-5 w-5" />
-                    <span className="text-sm">Unikon verified</span>
+                    <span className="text-sm">CollegeConnect verified</span>
                   </div>
                 </div>
                 <p className="text-xl text-gray-600">Co-founder, V3 Ventures | Founder, Dr. Vaidya's</p>

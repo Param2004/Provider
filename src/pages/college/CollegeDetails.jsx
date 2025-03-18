@@ -14,6 +14,42 @@ export default function CollegeDetails(){
     if (!college) return <p>College not found</p>;
     const toggleShowMore = () => setShowMore(!showMore);
 
+    const handleDownload = () => {
+      if (college.brochureLink) {
+        window.open(college.brochureLink, "_blank");
+      } else {
+        alert("Brochure not available for this college.");
+      }
+    };
+    
+
+    // const handleDownload = async () => {
+    //   if (!college.brochureLink) {
+    //     alert("Brochure not available for this college.");
+    //     return;
+    //   }
+    
+    //   try {
+    //     const response = await fetch(college.brochureLink);
+    //     const blob = await response.blob();
+    //     const url = window.URL.createObjectURL(blob);
+    
+    //     const a = document.createElement("a");
+    //     a.href = url;
+    //     a.download = `${college.title}_Brochure.pdf`; // File name for download
+    //     document.body.appendChild(a);
+    //     a.click();
+    
+    //     // Cleanup
+    //     document.body.removeChild(a);
+    //     window.URL.revokeObjectURL(url);
+    //   } catch (error) {
+    //     console.error("Download failed:", error);
+    //     alert("Failed to download the brochure.");
+    //   }
+    // };
+    
+
 
     return (
         <>
@@ -24,7 +60,7 @@ export default function CollegeDetails(){
                 <div className="flex justify-center items-center sm:flex-row flex-col gap-4">
                   <img
                     src={college.imgLink}
-                    alt="Sharda University"
+                    alt="College Image"
                     className="w-[240px] h-[240px] rounded-lg object-cover"
                   />
                   <div>
@@ -47,7 +83,6 @@ export default function CollegeDetails(){
 
               <div className="my-4">
                 <h4 className="font-bold text-xl text-gray-800 my-4">Fee Structure (2023-2024):</h4>
-                {/* <h6 className="text-gray-700 my-2">For more Details, Download Brochure</h6> */}
                 
                 {college.FeeMatrix ? (
                   <div style={{ overflowX: 'auto' }}>
@@ -88,7 +123,11 @@ export default function CollegeDetails(){
               </div>
 
               <div className="my-4">
-                <button className="bg-indigo-600 rounded py-2 px-6 cursor-pointer text-white" onClick={toggleShowMore}>
+              {/* <h6 className="text-gray-700">For more Details, Download Brochure</h6> */}
+                <button className="bg-green-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={handleDownload}>
+                  Get Brochure
+                </button>
+                <button className="bg-indigo-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={toggleShowMore}>
                   {showMore ? "Show less" : "Know more"}
                 </button>
               </div>

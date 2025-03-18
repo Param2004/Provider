@@ -40,7 +40,7 @@ export default function Navbar() {
             <div className="relative sm:min-w-3/4 lg:min-w-1/2">
               <input
                 type="search"
-                placeholder="Search Alumni"
+                placeholder="Search"
                 className="w-full bg-[#f6f7f9] px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200"
               />
               <div className="absolute inset-y-0 right-0 flex items-center mr-10">
