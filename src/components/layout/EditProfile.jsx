@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "./AuthNav";
 import Footer from "./Footer";
+import { Phone, Video, MessageCircle, X, Search, CalendarIcon } from "lucide-react";
+import { format } from "date-fns"
 
 const ChevronDownIcon = () => (
   <svg
@@ -156,9 +158,13 @@ const LockIcon = () => (
 )
 
 function EditProfile() {
+
+  const [date, setDate] = useState(new Date(2025, 7, 9)) // August 9, 2005
+  const [calendarOpen, setCalendarOpen] = useState(false)
+
   const [accordionState, setAccordionState] = useState({
     "basic-info": false,
-    "about-me": true,
+    "about-me": false,
     "my-expertise": false,
     "my-prices": false,
   })
@@ -169,6 +175,122 @@ function EditProfile() {
       [section]: !prev[section],
     }))
   }
+
+
+  const Calendar = ({ selected, onSelect }) => {
+    const [viewDate, setViewDate] = useState(selected || new Date())
+
+    // Get days in month
+    const getDaysInMonth = (year, month) => {
+      return new Date(year, month + 1, 0).getDate()
+    }
+
+    // Get day of week for first day of month (0 = Sunday, 6 = Saturday)
+    const getFirstDayOfMonth = (year, month) => {
+      return new Date(year, month, 1).getDay()
+    }
+
+    const month = viewDate.getMonth()
+    const year = viewDate.getFullYear()
+    const daysInMonth = getDaysInMonth(year, month)
+    const firstDayOfMonth = getFirstDayOfMonth(year, month)
+
+    // Generate days for the calendar
+    const days = []
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      days.push(null)
+    }
+    // Add days of the month
+    for (let i = 1; i <= daysInMonth; i++) {
+      days.push(new Date(year, month, i))
+    }
+
+    // Navigate to previous month
+    const prevMonth = () => {
+      setViewDate(new Date(year, month - 1, 1))
+    }
+
+    // Navigate to next month
+    const nextMonth = () => {
+      setViewDate(new Date(year, month + 1, 1))
+    }
+
+    // Check if a date is the same as the selected date
+    const isSameDay = (date1, date2) => {
+      return (
+        date1 &&
+        date2 &&
+        date1.getDate() === date2.getDate() &&
+        date1.getMonth() === date2.getMonth() &&
+        date1.getFullYear() === date2.getFullYear()
+      )
+    }
+
+    // Format month name
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ]
+
+    return (
+      <div className="text-gray-600 p-4 rounded-md shadow-lg w-64">
+        {/* Calendar header with navigation */}
+        <div className="flex justify-between items-center mb-4">
+          <button onClick={prevMonth} className="text-gray-400 hover:bg-gray-700 p-1 rounded">
+            &lt;
+          </button>
+          <div className="font-medium">
+            {monthNames[month]} {year}
+          </div>
+          <button onClick={nextMonth} className="text-gray-400 hover:bg-gray-700 p-1 rounded">
+            &gt;
+          </button>
+        </div>
+
+        {/* Day names */}
+        <div className="grid grid-cols-7 gap-1 mb-2">
+          {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day, index) => (
+            <div key={index} className="text-center text-xs text-gray-400">
+              {day}
+            </div>
+          ))}
+        </div>
+
+        {/* Calendar days */}
+        <div className="grid grid-cols-7 gap-1">
+          {days.map((date, index) => (
+            <div key={index} className="text-center">
+              {date ? (
+                <button
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
+                    isSameDay(date, selected) ? "bg-teal-600 text-white" : "hover:bg-gray-700"
+                  }`}
+                  onClick={() => onSelect(date)}
+                >
+                  {date.getDate()}
+                </button>
+              ) : (
+                <div className="w-8 h-8"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -187,7 +309,7 @@ function EditProfile() {
               />
             </div>
 
-            <div className="text-xl mb-4">suprit arya</div>
+            <div className="text-xl mb-4">UserName</div>
 
             <div className="flex gap-4">
               <button className="border border-gray-300 rounded-md px-3 py-1 bg-white hover:bg-gray-50">
@@ -312,7 +434,84 @@ function EditProfile() {
               </div>
 
               {accordionState["basic-info"] && (
-                <div className="px-4 pb-4">{/* Basic info content would go here */}</div>
+                <div className="px-4 pb-4">
+                  <div>
+                  <label className="block mb-2 text-sm">What should we call you?</label>
+                  <div className="grid grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      placeholder="First name"
+                      className="border border-gray-700 rounded-md p-2 w-full"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Last name"
+                      className="border border-gray-700 rounded-md p-2 w-full"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <label className="text-sm">What is your current designation?</label>
+                    <span className="text-xs text-gray-400">Max 110 chars</span>
+                  </div>
+                  <input
+                    type="text"
+                    className="border border-gray-700 rounded-md p-2 w-full"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2 text-sm">When is your birthday?</label>
+                    <div className="relative">
+                      {calendarOpen && (
+                        <div className="z-10 mt-2 w-auto">
+                          <Calendar selected={date} onSelect={(newDate) => setDate(newDate)} />
+                        </div>
+                      )}
+                      <button
+                        onClick={() => setCalendarOpen(!calendarOpen)}
+                        className="w-full justify-start text-left font-normal border border-gray-700 rounded-md pl-10 h-10 flex items-center"
+                      >
+                        <CalendarIcon className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
+                        {date ? format(date, "MMM d, yyyy") : "Select date"}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block mb-2 text-sm">Phone number</label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        className="border border-gray-700 rounded-md p-2 pl-16 w-full"
+                      />
+                      <div className="absolute left-3 top-2.5 flex items-center">
+                        <div className="w-5 h-4 mr-1 flex items-center">
+                          <div className="w-full h-4 bg-orange-500"></div>
+                          <div className="w-full h-4 bg-white"></div>
+                          <div className="w-full h-4 bg-green-500"></div>
+                        </div>
+                        <span className="text-gray-400">+91</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-sm">Email ID</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      className="border border-gray-700 rounded-md p-2 flex-1"
+                    />
+                    <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md">Verify</button>
+                  </div>
+                </div>
+                </div>
               )}
             </div>
 
@@ -405,7 +604,27 @@ function EditProfile() {
               </div>
 
               {accordionState["my-expertise"] && (
-                <div className="px-4 pb-4">{/* My expertise content would go here */}</div>
+                <div className="px-4 pb-4">
+                <div className="space-y-4">
+                <div>
+                    <p className="text-sm text-gray-400 mb-1">In what areas can you help others?</p>
+                    <div className="relative">
+                      <input
+                        className="border border-gray-600 p-2 w-full rounded-md"
+                        placeholder="Leadership/Coding/Marketing/Animation"
+                      />
+                      <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    <div className="text-white bg-teal-600 px-3 py-1 flex items-center gap-1 rounded border border-gray-600">
+                      Technology Innovation
+                      <X className="h-3 w-3 ml-1 cursor-pointer" />
+                    </div>
+                  </div>
+                  </div>
+                </div>
               )}
             </div>
 
@@ -426,7 +645,55 @@ function EditProfile() {
                 />
               </div>
 
-              {accordionState["my-prices"] && <div className="px-4 pb-4">{/* My prices content would go here */}</div>}
+              {accordionState["my-prices"] && (
+                <div className="px-4 pb-4">
+                <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between">
+                      <div>
+                      <Phone className="h-6 w-6 text-teal-700 px-1 inline" />
+                      <label className="text-sm mb-2 font-bold text-teal-600">
+                      Audio call
+                      </label>
+                      </div>
+                      <span className="text-gray-500">/hr</span>
+                      </div>
+                      <input
+                        type="text"
+                        className="w-full p-2 border border-gray-300 rounded-md bg-white"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between">
+                      <div>
+                        <Video className="h-6 w-6 text-blue-700 inline px-1" />
+                        <label className="text-sm mb-2 text-blue-600 font-bold">Video call</label>
+                        </div>
+                        <span className="text-gray-500">/hr</span>
+                      </div>
+                      <input
+                        type="text"
+                        className="w-full p-2 border border-gray-300 rounded-md bg-white"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between">
+                      <div>
+                        <MessageCircle className="h-6 w-6 text-orange-700 px-1 inline" />
+                        <label className="text-sm mb-2 text-orange-600 font-bold">Chat</label>
+                      </div>
+                        <span className="text-gray-500">/hr</span>
+                      </div>
+                      <input
+                        type="text"
+                        className="w-full p-2 border border-gray-300 rounded-md bg-white"
+                      />
+                    </div>
+                  </div>
+              </div>
+              )}
             </div>
           </div>
         </div>
