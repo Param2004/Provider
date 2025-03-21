@@ -10,8 +10,11 @@ import LandingPage from '../pages/LandingPage';
 import AboutUs from '../pages/AboutUs';
 import College from '../pages/college/College';
 // import CollegeLP from '../pages/CollegeLP';
-import Counsellor from '../pages/counsellor/Counsellor';
 import ForgotPassword from '../pages/auth/ForgotPassword';
+import Counsellor from '../pages/counsellor/Counsellor';
+import Alumni from '../pages/alumni/Alumni';
+import Student from '../pages/student/Student';
+import Faculty from '../pages/faculty/Faculty';
 import CollegeDetails from '../pages/college/CollegeDetails';
 import CollegePredictor from '../pages/college/CollegePredictor';
 import Staff from '../pages/college/CollegeStaff';
@@ -35,6 +38,9 @@ export default function Endpoints() {
         <Route path="/colleges" element={<College />} />
         {/* <Route path="/college-home" element={<CollegeLP />} /> */}
         <Route path="/counsellor" element={<Counsellor />} />
+        <Route path="/student" element={<Student />} />
+        <Route path="/alumni" element={<Alumni />} />
+        <Route path="/faculty" element={<Faculty />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/college/:id" element={<CollegeDetails />} />

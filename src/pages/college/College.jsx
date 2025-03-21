@@ -1,5 +1,5 @@
 import FilterColleges from "../../components/college/FilterColleges";
-import faqData from "../../data/faqData";
+import CollegeData from "../../data/CollegeData";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer"
 import { useState } from 'react';
@@ -7,10 +7,10 @@ import { LayoutGrid, List} from "lucide-react"
 import CollegeCard from "../../components/college/CollegeCard";
 
 const Property = () => {
-  const [filteredData, setFilteredData] = useState(faqData);
+  const [filteredData, setFilteredData] = useState(CollegeData);
 
   const handleResetData = () => {
-    setFilteredData(faqData);
+    setFilteredData(CollegeData);
   };
 
   const handleFilterChange = (filteredData) => {
@@ -22,7 +22,7 @@ const Property = () => {
   return (
     <>
       <Navbar />
-      <FilterColleges data={faqData} onFilterChange={handleFilterChange} onReset={handleResetData} />
+      <FilterColleges data={CollegeData} onFilterChange={handleFilterChange} onReset={handleResetData} />
       {/* Results Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">

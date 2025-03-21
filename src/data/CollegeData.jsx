@@ -1,4 +1,4 @@
-const faqData = [
+const CollegeData = [
     {
         id: "3@24e",
         category: "start",
@@ -17,6 +17,7 @@ const faqData = [
         ratings: "4.6",
         code: "192",
         established: "2007",
+        brochure: "https://drive.google.com/file/d/1t3or_eEImRpEJZj4EWTssmC38NNddhP1/view?usp=drive_link",
         naacGrade: "A+", 
         area: "12 Acres",
         location: "Greater Noida",
@@ -242,6 +243,7 @@ const faqData = [
         ratings: "4.6",
         code: "N.A",
         established: "2012",
+        brochure: "https://drive.google.com/file/d/17VvPbBqBFU5PhjYbK-6tBmxJbwrZqvzg/view?usp=drive_link",
         naacGrade: "A+",
         area: "52 Acres",
         location: "Greater Noida",
@@ -514,6 +516,7 @@ const faqData = [
         ratings: "4.6",
         code: "N.A",
         established: "2003",
+        brochure: "",
         naacGrade: "A+",
         area: "21 Acres",
         ranking: "35th",
@@ -880,6 +883,7 @@ const faqData = [
         ratings: "4.6",
         code: "492",
         established: "2009",
+        brochure: "https://drive.google.com/file/d/1d5MC0DFvXj21R1AZSwtpDxCY1YvST6-O/view?usp=drive_link",
         naacGrade: "A",
         area: "40 Acres",
         location: "Greater Noida",
@@ -1083,6 +1087,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "133",
         established: "2001",
+        brochure: "https://drive.google.com/file/d/1js_dVrPHM_Rq5QXwXaY4Zh0dQA3GpUsV/view?usp=drive_link",
         naacGrade: "A",
         area: "14 Acres",
         ranking: "145th",
@@ -1277,6 +1282,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "132",
         established: "2001",
+        brochure: "https://drive.google.com/file/d/1RbOyWyLak5Ur2n3oNLDr_AQSW6XAfiqU/view?usp=drive_link",
         naacGrade: "A+",
         area: "17 Acres",
         location: "Greater Noida",
@@ -1501,6 +1507,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "097",
         established: "1999",
+        brochure: "https://drive.google.com/file/d/1eEG7YdSnsD_u4SP9Y3wPME9FqLDkUqyT/view?usp=drive_link",
         naacGrade: "A+",
         area: "19 Acres",
         location: "Greater Noida",
@@ -1520,14 +1527,14 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/x85mDVdoSrp3qV1i9AA3ivxzUIpqnSrPlzdItnnA.png",
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/u9XB1r3zTiPhtKrIFx20Qx3c9Tm34Oh8fm1QmWFk.png",
             "https://www.galgotiasuniversity.edu.in/public/uploads/media/wtNtJaQ0PKw5W2zjNpTNYpqfTcZRXR0A0VT4l5Jh.png",
-          ],
+        ],
         mapLink:[
-<iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.738064754174!2d77.49505052495027!3d28.457311392017015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1dc8b29c0e1%3A0x4ee84fe65c694f0!2sGALGOTIAS%20COLLEGE%20OF%20ENGINEERING%20AND%20TECHNOLOGY%2C%20Knowledge%20Park%20II%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1710449785075!5m2!1sen!2sin" width="746"
-height="312"
-loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-],
+            <iframe className="rounded-4xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.738064754174!2d77.49505052495027!3d28.457311392017015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1dc8b29c0e1%3A0x4ee84fe65c694f0!2sGALGOTIAS%20COLLEGE%20OF%20ENGINEERING%20AND%20TECHNOLOGY%2C%20Knowledge%20Park%20II%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1710449785075!5m2!1sen!2sin" width="746"
+            height="312"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        ],
 
-              placements: {
+        placements: {
             "M.Tech": {
                 average: "6LPA",
                 highest: "30LPA"
@@ -1578,8 +1585,8 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               "id": "2(*3#@",
               "img": "https://gyaanarth.com/wp-content/uploads/2022/07/9a3ae484-072d-4071-93ce-7fc0eb5372dd.jpg"
             }
-    ],
-    FeeMatrix: {
+        ],
+        FeeMatrix: {
         "B.Tech": {
             fees: "115603*",
             seats: "1500*",
@@ -1602,7 +1609,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             seats: "180*",
             courses: "10"
         },
-    },
+        },
         faqs:[
             {
               id: "3@64e",
@@ -1722,6 +1729,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "N.A",
         established: "1996",
+        brochure: "https://drive.google.com/file/d/1LOI2-BPX1X7YzjnVRHxsNxSd6yPcBf7I/view?usp=drive_link",
         naacGrade: "A+",
         area: "63 Acres",
         anking: "87th",
@@ -2113,9 +2121,10 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "153",
         established: "2008",
+        brochure: "",
         naacGrade: "-",
         area: "11 Acres",
-          rank: "151th",
+        rank: "151th",
         location: "Greater Noida",
         hostelArea: "250 Acre",
         imgLink: "https://www.reviewadda.com/assets/uploads/article_images/LLoyd_Front.jpg",
@@ -2317,6 +2326,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "222",
         established: "2006",
+        brochure: "https://drive.google.com/file/d/1PRTB5mgcdsYEHiK35DWkgaUFfPiTBSPw/view?usp=drive_link",
         naacGrade: "B",
         area: "13 Acres",
         ranking: "202th",
@@ -2511,6 +2521,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "N.A",
         established: "2010",
+        brochure: "https://drive.google.com/file/d/1ubNdDWG6e9NgFtkf785lK4X0lx93jqRm/view?usp=drive_link",
         naacGrade: "A+",
         area: "75 Acres",
         location: "Greater Noida",
@@ -2924,6 +2935,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "N.A",
         established: "1998",
+        brochure: "",
         naacGrade: "A++",
         area: "5.5 Acres",
         location: "Delhi",
@@ -3166,6 +3178,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "N.A",
         established: "2014",
+        brochure: "",
         naacGrade: "A",
         area: "50 Acres",
         ranking: "37th",
@@ -3264,6 +3277,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             ratings: "4.6",
             code: "N.A",
             established: "2017",
+            brochure: "https://drive.google.com/file/d/1sJ6p4sCk0wPvrcGCjvYe2fwxLmJ2nIMs/view?usp=drive_link",
             naacGrade: "-",
             area: "2 Acres",
             location: "Greater Noida",
@@ -3517,6 +3531,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "N.A",
         established: "1993",
+        brochure: "https://drive.google.com/file/d/1qTxYZNxL2wBjgW0s6u_JSa3U1GB_p5Sq/view?usp=drive_link",
         naacGrade: "A+",
         area: "26 Acres",
         location: "Gurugram",
@@ -3773,6 +3788,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "216",
         established: "1994",
+        brochure: "https://drive.google.com/file/d/1C2v0e2iXn84H3-Q-SfFc2mRsz8xtj7M2/view?usp=drive_link",
         naacGrade: "B+",
         area: "13 Acres",
         location: "Greater Noida",
@@ -3986,6 +4002,7 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         ratings: "4.6",
         code: "090",
         established: "1981",
+        brochure: "https://drive.google.com/file/d/1bp2k1YbW26-RjByUixqAdF-l6cKXK2eJ/view?usp=drive_link",
         naacGrade: "-",
         area: "14 Acres",
         location: "Greater Noida",
@@ -4197,4 +4214,4 @@ loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           ],
     }
 ];
-export default faqData;
+export default CollegeData;

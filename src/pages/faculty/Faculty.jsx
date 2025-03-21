@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CS from "../../components/CallScheduler";
+import FacultyData from "../../data/FacultyData";
 
 
-const CounsellorPage = () => {
+const FacultyPage = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -38,7 +39,7 @@ const CounsellorPage = () => {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-6">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold">Top Counsellors</h1>
+          <h1 className="text-2xl text-gray-800 font-bold">Top Faculty</h1>
           {/* <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md bg-white hover:bg-gray-50">
             Filter by Location
             <svg
@@ -55,31 +56,27 @@ const CounsellorPage = () => {
 
         {/* Counsellor Cards */}
         <div className="grid gap-6">
-          {[1, 2, 3].map((item) => (
+          {FacultyData.map((item) => (
             <div key={item} className="rounded-lg border border-gray-300 p-6">
               <div className="flex items-start justify-between">
                 <div className="flex gap-4">
                   <img
-                    src="/placeholder.svg?height=80&width=80"
-                    alt="ABC consultancy"
+                    src={item.Profile}
+                    alt="consultancy_img"
                     className="h-20 w-20 rounded-lg"
                   />
                   <div>
                     <div className="flex items-start justify-between">
                       <div>
-                        <h2 className="text-xl font-bold">ABC consultancy</h2>
-                        <p className="text-sm text-gray-600">Top 10 at collegeconnect | Region : Delhi, NCR</p>
+                        <h2 className="text-xl font-bold text-gray-700">{item.Name}</h2>
+                        <p className="text-sm text-gray-600">{item.Bio}</p>
+                        <p className="text-sm text-gray-600">{item["I can help with"]}</p>
                       </div>
                     </div>
 
                     <div className="mt-4">
                       <h3 className="font-medium mb-2">About</h3>
-                      <p className="text-sm text-gray-600">
-                        Alumni are former students of a college or university who have graduated and moved on to their
-                        professional or personal pursuits. They play a vital role in supporting current students by
-                        sharing experiences, offering mentorship, and providing networking opportunities. Alumni often
-                        act as ambassadors for their institution, contributing to its growth and reputation.
-                      </p>
+                      <p className="text-sm text-gray-600">{item.Description}</p>
                     </div>
                   </div>
                 </div>
@@ -102,7 +99,7 @@ const CounsellorPage = () => {
                   </button>
                   <div className="flex items-center gap-1">
                     <span className="font-medium text-gray-600">4.5</span>
-                    <span className="font-medium text-gray-600">/5</span>
+                    <span className="text-gray-600 font-medium">/5</span>
                   </div>
                 </div>
               </div>
@@ -171,5 +168,4 @@ const CounsellorPage = () => {
   )
 }
 
-export default CounsellorPage
-
+export default FacultyPage;

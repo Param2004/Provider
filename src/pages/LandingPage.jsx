@@ -11,15 +11,15 @@ export default function LandingPage() {
 
   const navItems = [
     { name: "Alumni", 
-      path: "/staff", 
+      path: "/alumni", 
       img: "/assets/images/home_2.png", 
       description: "Connect with the alumni of the colleges, and get real feedback about the college." },
     { name: "Faculty", 
-      path: "/staff", 
+      path: "/faculty", 
       img: "/assets/images/home_2.png", 
       description: "Engage with experienced faculty members to gain insights into academic programs." },
     { name: "Student", 
-      path: "/staff", 
+      path: "/student", 
       img: "/assets/images/home_2.png", 
       description: "Interact with current students to understand campus life and study experiences." },
     { name: "Counsellor", 

@@ -3,20 +3,29 @@ import Footer from "../../components/layout/Footer";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import FAQs from "../../components/college/FAQs"
-import Data from "../../data/faqData";
+import CollegeData from "../../data/CollegeData";
 
 
 export default function CollegeDetails(){
     const { id } = useParams();
     const [showMore, setShowMore] = useState(false);
-    const college = Data.find((c) => c.id.toString() === id);
+    const college = CollegeData.find((c) => c.id.toString() === id);
 
     if (!college) return <p>College not found</p>;
     const toggleShowMore = () => setShowMore(!showMore);
 
-    const handleDownload = () => {
-      if (college.brochureLink) {
-        window.open(college.brochureLink, "_blank");
+    const handleDocsDownload = () => {
+      if (college) {
+        window.open("https://drive.google.com/file/d/1EIS3bMR3p5sedRYkyW3taQq4wSBguRtR/view?usp=sharing", "_blank");
+      } else {
+        alert("Docs not available.");
+      }
+    };
+
+
+    const handleBrochureDownload = () => {
+      if (college.brochure) {
+        window.open(college.brochure, "_blank");
       } else {
         alert("Brochure not available for this college.");
       }
@@ -24,13 +33,13 @@ export default function CollegeDetails(){
     
 
     // const handleDownload = async () => {
-    //   if (!college.brochureLink) {
+    //   if (!college.brochure) {
     //     alert("Brochure not available for this college.");
     //     return;
     //   }
     
     //   try {
-    //     const response = await fetch(college.brochureLink);
+    //     const response = await fetch(college.brochure);
     //     const blob = await response.blob();
     //     const url = window.URL.createObjectURL(blob);
     
@@ -124,9 +133,6 @@ export default function CollegeDetails(){
 
               <div className="my-4">
               {/* <h6 className="text-gray-700">For more Details, Download Brochure</h6> */}
-                <button className="bg-green-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={handleDownload}>
-                  Get Brochure
-                </button>
                 <button className="bg-indigo-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={toggleShowMore}>
                   {showMore ? "Show less" : "Know more"}
                 </button>
@@ -139,7 +145,14 @@ export default function CollegeDetails(){
               >
                 {showMore && (
                   <section className="flex flex-col justify-center items-center mt-8">
-
+                  <div className="flex justify-center items-center">
+                    <button className="bg-yellow-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={handleDocsDownload}>
+                      Docs Required
+                    </button>
+                    <button className="bg-green-600 rounded py-2 px-6 m-4 cursor-pointer text-white" onClick={handleBrochureDownload}>
+                      Get Brochure
+                    </button>
+                  </div>
                     <div>
                       <h4 className="font-bold text-xl text-gray-800">Frequently asked questions:</h4>
                       <div>
