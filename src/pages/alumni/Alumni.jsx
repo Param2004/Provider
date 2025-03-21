@@ -57,13 +57,13 @@ const AlumniPage = () => {
         {/* Counsellor Cards */}
         <div className="grid gap-6">
           {AlumniData.map((item) => (
-            <div key={item} className="rounded-lg border border-gray-300 p-6">
+            <div key={item.Name} className="rounded-lg border border-gray-300 p-6">
               <div className="flex items-start justify-between">
                 <div className="flex gap-4">
                   <img
                     src={item.Profile}
-                    alt="consultancy_img"
-                    className="h-20 w-20 rounded-lg"
+                    alt={item.Name}
+                    className="w-30 rounded-lg"
                   />
                   <div>
                     <div className="flex items-start justify-between">

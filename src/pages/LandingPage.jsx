@@ -95,8 +95,10 @@ export default function LandingPage() {
                 className="rounded-xl md:max-w-[50%] max-w-[40%]" 
               />
               <div className="lg:mx-30 md:mx-20 mx-4">
+                <Link to={item.path}>
                 <h2 className="lg:text-8xl md:text-6xl font-bold text-4xl text-indigo-600 mb-4">{item.name}</h2>
                 <p className="lg:text-xl text-gray-500">{item.description}</p>
+                </Link>
               </div>
               </div>
               

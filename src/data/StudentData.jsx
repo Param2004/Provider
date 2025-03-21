@@ -1,108 +1,108 @@
 const StudentData = [
   {
-    "Name": "Suprit Singh Arya",
-    "Profile": "https://drive.google.com/open?id=1ALkOgY5eSkIjj_pqpZmIhknu9sXznoCW",
-    "Bio": "COO at Provider App",
-    "I can help with": "Admission Guidance, Entrepreneurship, Academics",
-    "Description": "I am a passionate entrepreneur and COO of Dream Provider Pvt. Ltd., dedicated to solving student challenges through innovative solutions like the Provider App. With a focus on leadership, teamwork, and creating meaningful impact, I strive to empower students academically and beyond."
+    Name: "Suprit Singh Arya",
+    Profile: "https://lh3.googleusercontent.com/d/1ALkOgY5eSkIjj_pqpZmIhknu9sXznoCW",
+    Bio: "COO at Provider App",
+    Expertise: "Admission Guidance, Entrepreneurship, Academics",
+    Description: "I am a passionate entrepreneur and COO of Dream Provider Pvt. Ltd., dedicated to solving student challenges through innovative solutions like the Provider App. With a focus on leadership, teamwork, and creating meaningful impact, I strive to empower students academically and beyond."
   },
   {
-    "Name": "Vansh kumar",
-    "Profile": "https://drive.google.com/open?id=1jsJtovqR6zGlqEEWrPaiPxVfB6wSyZMZ",
-    "Bio": "Front-End Developer | React JS(Learner) | Python Beginner",
-    "I can help with": "DSA, Development , Academics",
-    "Description": "I am a 2nd year B.tech student focused on improving problem solving efficiency for competitive programming and technical interviews. "
+    Name: "Vansh kumar",
+    Profile: "https://lh3.googleusercontent.com/d/1jsJtovqR6zGlqEEWrPaiPxVfB6wSyZMZ",
+    Bio: "Front-End Developer | React JS(Learner) | Python Beginner",
+    Expertise: "DSA, Development , Academics",
+    Description: "I am a 2nd year B.tech student focused on improving problem solving efficiency for competitive programming and technical interviews. "
   },
   {
-    "Name": "Kshitij Goel ",
-    "Profile": "https://drive.google.com/file/d/1BdKfr3TDHsATriYH3-6oxzhI6wB7HxJm/view?usp=drive_link",
-    "Bio": "Sales Lead @ProviderApp | Startup Enthusiast | Growth & B2B Deals",
-    "I can help with": "Admission Guidance, Entrepreneurship, Academics",
-    "Description": "I am a passionate entrepreneur and currently sales lead at Provideer App, always "
+    Name: "Kshitij Goel ",
+    Profile: "https://lh3.googleusercontent.com/d/1BdKfr3TDHsATriYH3-6oxzhI6wB7HxJm",
+    Bio: "Sales Lead @ProviderApp | Startup Enthusiast | Growth & B2B Deals",
+    Expertise: "Admission Guidance, Entrepreneurship, Academics",
+    Description: "I am a passionate entrepreneur and currently sales lead at Provideer App, always "
   },
   {
-    "Name": "Lakshya Srivastava ",
-    "Profile": "https://drive.google.com/open?id=12_JYu42gxB7x317kJZeXccBD6tEyvm2_",
-    "Bio": "Passionate about DSA ",
-    "I can help with": "DSA, Admission guidance, sports, Academics",
-    "Description": "I am 2nd year student who is passionate in DSA, sports & academics."
+    Name: "Lakshya Srivastava ",
+    Profile: "https://lh3.googleusercontent.com/d/12_JYu42gxB7x317kJZeXccBD6tEyvm2_",
+    Bio: "Passionate about DSA ",
+    Expertise: "DSA, Admission guidance, sports, Academics",
+    Description: "I am 2nd year student who is passionate in DSA, sports & academics."
   },
   {
-    "Name": "Lakshya Garg",
-    "Profile": "https://drive.google.com/open?id=1o9lhMX2Beb4aYgoEBHLFd_QVnhgBFzcB",
-    "Bio": "Aspiring Computer Science Engineer , Passionate about Technology & Innovation",
-    "I can help with": "DSA, Academics",
-    "Description": "I am a dedicated Computer Science Engineering student with a strong interest in coding, data analysis, and problem-solving. I am constantly exploring new technologies, working on projects, and aiming to build impactful solutions. My goal is to secure a placement and grow as a skilled software developer."
+    Name: "Lakshya Garg",
+    Profile: "https://lh3.googleusercontent.com/d/1o9lhMX2Beb4aYgoEBHLFd_QVnhgBFzcB",
+    Bio: "Aspiring Computer Science Engineer , Passionate about Technology & Innovation",
+    Expertise: "DSA, Academics",
+    Description: "I am a dedicated Computer Science Engineering student with a strong interest in coding, data analysis, and problem-solving. I am constantly exploring new technologies, working on projects, and aiming to build impactful solutions. My goal is to secure a placement and grow as a skilled software developer."
   },
   {
-    "Name": "Rishav Raj",
-    "Profile": "https://drive.google.com/open?id=1T0wrJ51-8LNj6kFr62CtKyDm3TANZNxE",
-    "Bio": "AI and Data science Engineer 25'",
-    "I can help with": "DSA, Development, Entrepreneurship, Admission Guidance, Research paper ",
-    "Description": "A final year student looking forward to explore new opportunities, and excel my skills through it. "
+    Name: "Rishav Raj",
+    Profile: "https://lh3.googleusercontent.com/d/1T0wrJ51-8LNj6kFr62CtKyDm3TANZNxE",
+    Bio: "AI and Data science Engineer 25'",
+    Expertise: "DSA, Development, Entrepreneurship, Admission Guidance, Research paper ",
+    Description: "A final year student looking forward to explore new opportunities, and excel my skills through it. "
   },
   {
-    "Name": "Anurag Raj ",
-    "Profile": "https://drive.google.com/open?id=1raiXs-jk6U5dApeoQMexD2oXaVG9Apxu",
-    "Bio": "SDE @AppTestify",
-    "I can help with": "DSA, Development, Academics",
-    "Description": "I'm a final-year Computer Science B.Tech student at GL Bajaj, where I've been refining my programming craft. Think of C and C++ as my core tools, and web development as my canvas. I'm also exploring Python, always looking to add new techniques to my repertoire. I'm eager to build something impactful."
+    Name: "Anurag Raj ",
+    Profile: "https://lh3.googleusercontent.com/d/1raiXs-jk6U5dApeoQMexD2oXaVG9Apxu",
+    Bio: "SDE @AppTestify",
+    Expertise: "DSA, Development, Academics",
+    Description: "I'm a final-year Computer Science B.Tech student at GL Bajaj, where I've been refining my programming craft. Think of C and C++ as my core tools, and web development as my canvas. I'm also exploring Python, always looking to add new techniques to my repertoire. I'm eager to build something impactful."
   },
   {
-    "Name": "Abhishek Singh ",
-    "Profile": "https://drive.google.com/open?id=1quQPDsk_hY4AUPmsqDwGf-dIVwFebYFY",
-    "Bio": "Frontend Developer | HTML | CSS |JavaScript | Git | SQL | Java | Problem Solving | OOPs| Figma",
-    "I can help with": "Development",
-    "Description": "I am Abhishek Singh currently pursuing BTech from GL Bajaj with the specialization of computer science and engineering.  I have a 6 month experience in Java developer role with the company outlier Ai and developing some projects during internship."
+    Name: "Abhishek Singh ",
+    Profile: "https://lh3.googleusercontent.com/d/1quQPDsk_hY4AUPmsqDwGf-dIVwFebYFY",
+    Bio: "Frontend Developer | HTML | CSS |JavaScript | Git | SQL | Java | Problem Solving | OOPs| Figma",
+    Expertise: "Development",
+    Description: "I am Abhishek Singh currently pursuing BTech from GL Bajaj with the specialization of computer science and engineering.  I have a 6 month experience in Java developer role with the company outlier Ai and developing some projects during internship."
   },
   {
-    "Name": "Jigisha Baliyann",
-    "Profile": "https://drive.google.com/open?id=1LgobzUpvbYQQTRP8iAYPv3SVDT_-pkfM",
-    "Bio": "Scholar @SheFi | Hackathons: 1x Runner-Up; 1x Top 10; 1x Qualifier; 2x Participant | Finalist @MindTheProduct by @IITR | Secretary' 24-25 @Yuktikala Club",
-    "I can help with": "DSA, Entrepreneurship, Internship Guidance, Academics, Marketing and Sponsorship",
-    "Description": "I am a highly energized person, always striving to learn more and more, and apply my skills for betterment of people and contribute in society."
+    Name: "Jigisha Baliyann",
+    Profile: "https://lh3.googleusercontent.com/d/1LgobzUpvbYQQTRP8iAYPv3SVDT_-pkfM",
+    Bio: "Scholar @SheFi | Hackathons: 1x Runner-Up; 1x Top 10; 1x Qualifier; 2x Participant | Finalist @MindTheProduct by @IITR | Secretary' 24-25 @Yuktikala Club",
+    Expertise: "DSA, Entrepreneurship, Internship Guidance, Academics, Marketing and Sponsorship",
+    Description: "I am a highly energized person, always striving to learn more and more, and apply my skills for betterment of people and contribute in society."
   },
   {
-    "Name": "Ayushman Gupta ",
-    "Profile": "https://drive.google.com/open?id=1uoTNOQQJMiHWYlYnZ-7VkKbUnqJsR5XQ",
-    "Bio": "Full Stack Developer (MERN Developer) | SIH Qualifier | SDE Intern at Apptesyify (IQLEXA)",
-    "I can help with": "Development",
-    "Description": "I believe in aiming big and working in parts to achieve your goals and never regret about your past"
+    Name: "Ayushman Gupta ",
+    Profile: "https://lh3.googleusercontent.com/d/1uoTNOQQJMiHWYlYnZ-7VkKbUnqJsR5XQ",
+    Bio: "Full Stack Developer (MERN Developer) | SIH Qualifier | SDE Intern at Apptesyify (IQLEXA)",
+    Expertise: "Development",
+    Description: "I believe in aiming big and working in parts to achieve your goals and never regret about your past"
   },
   {
-    "Name": "Aryan Singh",
-    "Profile": "https://drive.google.com/open?id=1dClVvKP1sSz2c0ezARHp3rhIL5bVEL1r",
-    "Bio": "ublic Relations Lead @Vividhata Club || FRONT-END WEB DEVELOPER ||Contributor @GSSoC'24 || C || C++ || Practicing DSA in C++ ||",
-    "I can help with": "DSA, Development",
-    "Description": "Programming Enthusiasts, Passionate as Developer."
+    Name: "Aryan Singh",
+    Profile: "https://lh3.googleusercontent.com/d/1dClVvKP1sSz2c0ezARHp3rhIL5bVEL1r",
+    Bio: "ublic Relations Lead @Vividhata Club || FRONT-END WEB DEVELOPER ||Contributor @GSSoC'24 || C || C++ || Practicing DSA in C++ ||",
+    Expertise: "DSA, Development",
+    Description: "Programming Enthusiasts, Passionate as Developer."
   },
   {
-    "Name": "Tanya Goel",
-    "Profile": "https://drive.google.com/open?id=14C60fAeGP3pCdqJL_m-ZAGKJ4sje3Xon",
-    "Bio": "Passionate Programmer| Problem Solver| Tech Enthu",
-    "I can help with": "DSA",
-    "Description": "I am curious and passionate coder"
+    Name: "Tanya Goel",
+    Profile: "https://lh3.googleusercontent.com/d/14C60fAeGP3pCdqJL_m-ZAGKJ4sje3Xon",
+    Bio: "Passionate Programmer| Problem Solver| Tech Enthu",
+    Expertise: "DSA",
+    Description: "I am curious and passionate coder"
   },
   {
-    "Name": "Alok Kumar Ray",
-    "Profile": "https://drive.google.com/open?id=1DkHHpIvtoDBbG4g_8QNgqvcP90-kBeng",
-    "Bio": "MERN Stack Developer | Competitive Programmer",
-    "I can help with": "DSA, Development, Admission Guidance, Internship Guidance, Sports, Academics",
-    "Description": "I would describe myself as a dedicated and curious learner with a strong passion for web development and problem-solving. As a MERN Stack Developer and active Competitive Programmer, I thrive on challenges\u2014whether it\u2019s building full-stack applications or solving complex algorithmic problems on platforms like LeetCode and Codeforces. Being a scholar, I also believe in giving back by mentoring and guiding fellow students in their academic and career decisions. I\u2019m always eager to learn new technologies, improve my skills, and contribute meaningfully to any team or project I\u2019m part of.\n\n"
+    Name: "Alok Kumar Ray",
+    Profile: "https://lh3.googleusercontent.com/d/1DkHHpIvtoDBbG4g_8QNgqvcP90-kBeng",
+    Bio: "MERN Stack Developer | Competitive Programmer",
+    Expertise: "DSA, Development, Admission Guidance, Internship Guidance, Sports, Academics",
+    Description: "I would describe myself as a dedicated and curious learner with a strong passion for web development and problem-solving. As a MERN Stack Developer and active Competitive Programmer, I thrive on challenges\u2014whether it\u2019s building full-stack applications or solving complex algorithmic problems on platforms like LeetCode and Codeforces. Being a scholar, I also believe in giving back by mentoring and guiding fellow students in their academic and career decisions. I\u2019m always eager to learn new technologies, improve my skills, and contribute meaningfully to any team or project I\u2019m part of.\n\n"
   },
   {
-    "Name": "Sajal Srivastava ",
-    "Profile": "https://drive.google.com/open?id=1YGux8n2r9DyNXFU-Gzum67z0iwMxjPlw",
-    "Bio": "Chill Guy love to have fun ",
-    "I can help with": "Entrepreneurship, Admission Guidance, Internship Guidance",
-    "Description": "Self motivated "
+    Name: "Sajal Srivastava ",
+    Profile: "https://lh3.googleusercontent.com/d/1YGux8n2r9DyNXFU-Gzum67z0iwMxjPlw",
+    Bio: "Chill Guy love to have fun ",
+    Expertise: "Entrepreneurship, Admission Guidance, Internship Guidance",
+    Description: "Self motivated "
   },
   // {
-  //   "Name": NaN,
-  //   "Profile": NaN,
-  //   "Bio": NaN,
-  //   "I can help with": NaN,
-  //   "Description": NaN
+  //   Name: NaN,
+  //   Profile: NaN,
+  //   Bio: NaN,
+  //   Expertise: NaN,
+  //   Description: NaN
   // }
 ];
 

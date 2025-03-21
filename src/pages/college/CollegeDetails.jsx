@@ -4,6 +4,11 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import FAQs from "../../components/college/FAQs"
 import CollegeData from "../../data/CollegeData";
+import StudentData from "../../data/StudentData";
+import AlumniData from "../../data/AlumniData";
+import { CheckCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import CS from "../../components/CallScheduler";
 
 
 export default function CollegeDetails(){
@@ -30,6 +35,17 @@ export default function CollegeDetails(){
         alert("Brochure not available for this college.");
       }
     };
+
+
+    const [isOpen, setIsOpen] = useState(false);
+      const [isSubmitted, setIsSubmitted] = useState(false);
+    
+      const openPopup = () => {
+        setIsOpen(true);
+        setIsSubmitted(false);
+      };
+    
+      const closePopup = () => setIsOpen(false);
     
 
     // const handleDownload = async () => {
@@ -176,37 +192,37 @@ export default function CollegeDetails(){
 
 
               {/* Alumni Section */}
-              <section className="my-12">
+              {id=="3@24e" && (
+                <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Alumni</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[1, 2, 3].map((i) => (
+                  {AlumniData.map((i) => (
                     <div key={`alumni-${i}`} className="border border-gray-300 rounded-lg p-6">
                       <div className="flex items-start gap-3 mb-4">
                         <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                          <img src="/placeholder-avatar.jpg" alt="Alumni" className="h-full w-full object-cover" />
+                          <img src={i.Profile} alt="Alumni" className="h-full w-full object-cover" />
                         </div>
                         <div>
-                          <h3 className="font-medium">Aditya Dev</h3>
-                          <p className="text-sm text-gray-600">Works at Microsoft | 2015</p>
+                          <h3 className="font-medium">{i.Name}</h3>
+                          <p className="text-sm text-gray-600">{i.Bio}</p>
+                          <p className="text-sm text-gray-600">{i.Expertise}</p>
                         </div>
                       </div>
                       <div className="mb-4">
                         <h4 className="font-medium mb-1">About</h4>
-                        <p className="text-sm text-gray-600">
-                          Alumni are former students of a college or university who have graduated and moved on to their
-                          professional or personal pursuits.
-                        </p>
+                        <p className="text-sm text-gray-600">{i.Description}</p>
                       </div>
-                      <button className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
+                      <button onClick={openPopup} className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
                         Schedule a Call
                       </button>
                     </div>
                   ))}
                 </div>
               </section>
+              )}
               
               {/* Faculty Section */}
-              <section className="mb-12">
+              {/* <section className="mb-12">
                 <h2 className="text-xl font-bold mb-6">Faculty</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[1, 2, 3].map((i) => (
@@ -233,38 +249,85 @@ export default function CollegeDetails(){
                     </div>
                   ))}
                 </div>
-              </section>
+              </section> */}
               
               {/* Students Section */}
-              <section className="mb-12">
+              {id=="3@24e" && (
+              <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Students</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[1, 2, 3].map((i) => (
-                    <div key={`student-${i}`} className="border border-gray-300 rounded-lg p-6">
+                  {StudentData.map((i) => (
+                    <div key={`alumni-${i}`} className="border border-gray-300 rounded-lg p-6">
                       <div className="flex items-start gap-3 mb-4">
                         <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                          <img src="/placeholder-avatar.jpg" alt="Student" className="h-full w-full object-cover" />
+                          <img src={i.Profile} alt="Alumni" className="h-full w-full object-cover" />
                         </div>
                         <div>
-                          <h3 className="font-medium">Aditya Dev</h3>
-                          <p className="text-sm text-gray-600">Branch: AIML</p>
+                          <h3 className="font-medium">{i.Name}</h3>
+                          <p className="text-sm text-gray-600">{i.Bio}</p>
+                          <p className="text-sm text-gray-600">{i.Expertise}</p>
                         </div>
                       </div>
                       <div className="mb-4">
                         <h4 className="font-medium mb-1">About</h4>
-                        <p className="text-sm text-gray-600">
-                          Alumni are former students of a college or university who have graduated and moved on to their
-                          professional or personal pursuits.
-                        </p>
+                        <p className="text-sm text-gray-600">{i.Description}</p>
                       </div>
-                      <button className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
+                      <button onClick={openPopup} className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
                         Schedule a Call
                       </button>
                     </div>
                   ))}
                 </div>
               </section>
+              )}
             </div>
+
+
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  className="fixed inset-0 flex items-center justify-center bg-black/50"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <motion.div
+                    className="bg-white p-6 rounded-lg shadow-lg"
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 50, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <h2 className="text-lg font-semibold mb-4 text-center">
+                      {isSubmitted ? "Success!" : "Fill the Form"}
+                    </h2>
+              
+                    {isSubmitted ? (
+                      <motion.div
+                        className="flex flex-col items-center"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 100 }}
+                      >
+                        <CheckCircle size={50} className="text-green-500" />
+                        <p className="text-green-600 mt-2">Submitted Successfully!</p>
+                      </motion.div>
+                    ) : (
+                      <CS />
+                    )}
+                  
+                    {!isSubmitted && (
+                      <button
+                        onClick={closePopup}
+                        className="mt-4 text-red-500 underline hover:text-red-700"
+                      >
+                        Close
+                      </button>
+                    )}
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <Footer />
         </>

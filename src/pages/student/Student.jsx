@@ -57,20 +57,20 @@ const StudentPage = () => {
         {/* Counsellor Cards */}
         <div className="grid gap-6">
           {StudentData.map((item) => (
-            <div key={item} className="rounded-lg border border-gray-300 p-6">
+            <div key={item.Name} className="rounded-lg border border-gray-300 p-6">
               <div className="flex items-start justify-between">
                 <div className="flex gap-4">
-                  <img
-                    src={item.Profile}
-                    alt="consultancy_img"
-                    className="h-20 w-20 rounded-lg"
-                  />
+                <img
+                  src={item.Profile}
+                  alt={item.Name}
+                  className="rounded-lg w-30"
+                />
                   <div>
                     <div className="flex items-start justify-between">
                       <div>
                         <h2 className="text-xl font-bold text-gray-700">{item.Name}</h2>
                         <p className="text-sm text-gray-600">{item.Bio}</p>
-                        <p className="text-sm text-gray-600">{item["I can help with"]}</p>
+                        <p className="text-sm text-gray-600">{item.Expertise}</p>
                       </div>
                     </div>
 
