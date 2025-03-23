@@ -1,7 +1,7 @@
 import Navbar from "../../components/layout/AuthNav";
 import Footer from "../../components/layout/Footer";
 import React, { useState } from "react";
-import CS from "../../components/CallScheduler";
+import CS from "../../services/CallScheduler";
 import StudentData from "../../data/StudentData";
 
 

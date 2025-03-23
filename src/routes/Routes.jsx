@@ -18,7 +18,7 @@ import Faculty from '../pages/faculty/Faculty';
 import CollegeDetails from '../pages/college/CollegeDetails';
 import CollegePredictor from '../pages/college/CollegePredictor';
 import Staff from '../pages/college/CollegeStaff';
-import ScrollToTop from '../components/ScrollToTop'
+import ScrollToTop from '../utils/ScrollToTop'
 
 // import ResetEmail from '../pages/ResetEmail';
 export default function Endpoints() {

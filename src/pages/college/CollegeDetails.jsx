@@ -8,7 +8,7 @@ import StudentData from "../../data/StudentData";
 import AlumniData from "../../data/AlumniData";
 import { CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import CS from "../../components/CallScheduler";
+import CS from "../../services/CallScheduler";
 
 
 export default function CollegeDetails(){
@@ -38,11 +38,9 @@ export default function CollegeDetails(){
 
 
     const [isOpen, setIsOpen] = useState(false);
-      const [isSubmitted, setIsSubmitted] = useState(false);
     
       const openPopup = () => {
         setIsOpen(true);
-        setIsSubmitted(false);
       };
     
       const closePopup = () => setIsOpen(false);
@@ -281,54 +279,8 @@ export default function CollegeDetails(){
               </section>
               )}
             </div>
-
-
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  className="fixed inset-0 flex items-center justify-center bg-black/50"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <motion.div
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 50, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <h2 className="text-lg font-semibold mb-4 text-center">
-                      {isSubmitted ? "Success!" : "Fill the Form"}
-                    </h2>
-              
-                    {isSubmitted ? (
-                      <motion.div
-                        className="flex flex-col items-center"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100 }}
-                      >
-                        <CheckCircle size={50} className="text-green-500" />
-                        <p className="text-green-600 mt-2">Submitted Successfully!</p>
-                      </motion.div>
-                    ) : (
-                      <CS />
-                    )}
-                  
-                    {!isSubmitted && (
-                      <button
-                        onClick={closePopup}
-                        className="mt-4 text-red-500 underline hover:text-red-700"
-                      >
-                        Close
-                      </button>
-                    )}
-                  </motion.div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
+          {isOpen && ( <CS onStateChange={closePopup} /> )}
           <Footer />
         </>
     )
