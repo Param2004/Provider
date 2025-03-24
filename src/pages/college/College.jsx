@@ -1,5 +1,5 @@
 import FilterColleges from "../../components/college/FilterColleges";
-import CollegeData from "../../data/CollegeData";
+import CollegeData from "../../data/CData";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer"
 import { useState } from 'react';

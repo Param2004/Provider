@@ -3,11 +3,9 @@ import Footer from "../../components/layout/Footer";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import FAQs from "../../components/college/FAQs"
-import CollegeData from "../../data/CollegeData";
+import CollegeData from "../../data/CData";
 import StudentData from "../../data/StudentData";
 import AlumniData from "../../data/AlumniData";
-import { CheckCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import CS from "../../services/CallScheduler";
 
 
@@ -177,11 +175,18 @@ export default function CollegeDetails(){
                     </div>
 
 
-                    <div className="m-20">
+                    {/* <div className="m-20">
                       {college.mapLink ? (
                       <div>{college.mapLink}</div>
                       ) : "No Map Found !"}
-                    </div>
+                    </div> */}
+                    {/* <div className="m-20">
+                      {college.mapLink ? (
+                      <div>
+                      <iframe className="rounded-4xl" src={college.mapLink} width="746" height="312" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                      ) : "No Map Found !"}
+                    </div> */}
                   </section>
                 )}
               </div>
@@ -190,7 +195,7 @@ export default function CollegeDetails(){
 
 
               {/* Alumni Section */}
-              {id=="3@24e" && (
+              {id=="1" && (
                 <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Alumni</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -250,7 +255,7 @@ export default function CollegeDetails(){
               </section> */}
               
               {/* Students Section */}
-              {id=="3@24e" && (
+              {id=="1" && (
               <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Students</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
