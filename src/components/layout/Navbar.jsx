@@ -21,7 +21,7 @@ import {
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+// import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Phone, MessageCircle, ArrowUp } from "lucide-react"
 
 const solutions = [

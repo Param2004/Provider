@@ -299,7 +299,7 @@ function EditProfile() {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-6 flex gap-8">
         {/* Left Column - Profile */}
-        <div className="w-1/3">
+        {/* <div className="w-1/3">
           <div className="flex flex-col items-center mb-6">
             <div className="h-36 w-36 mb-4 border-2 border-gray-200 rounded-full overflow-hidden">
               <img
@@ -321,7 +321,6 @@ function EditProfile() {
             </div>
           </div>
 
-          {/* Profile Completion */}
           <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
             <div className="flex justify-between items-center mb-4">
               <div>
@@ -411,10 +410,10 @@ function EditProfile() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Right Column - Form */}
-        <div className="w-2/3">
+        <div className="w-full">
           <div className="space-y-4">
             {/* Basic Info */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200">
@@ -434,7 +433,7 @@ function EditProfile() {
               </div>
 
               {accordionState["basic-info"] && (
-                <div className="px-4 pb-4">
+                <div className=" grid px-4 pb-4">
                   <div>
                   <label className="block mb-2 text-sm">What should we call you?</label>
                   <div className="grid grid-cols-2 gap-4">
@@ -511,6 +510,7 @@ function EditProfile() {
                     <button type="submit" className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md">Verify</button>
                   </div>
                 </div>
+                <button type="submit" className="bg-teal-600 hover:bg-teal-700 my-4 text-white px-4 py-2 rounded-md">Save Changes</button>
                 </div>
               )}
             </div>
@@ -582,6 +582,7 @@ function EditProfile() {
                       />
                     </div>
                   </div>
+                  <button type="submit" className="bg-teal-600 hover:bg-teal-700 w-full my-4 text-white px-4 py-2 rounded-md">Save Changes</button>
                 </div>
               )}
             </div>
@@ -623,6 +624,7 @@ function EditProfile() {
                       <X className="h-3 w-3 ml-1 cursor-pointer" />
                     </div>
                   </div>
+                  <button type="submit" className="bg-teal-600 hover:bg-teal-700 w-full my-4 text-white px-4 py-2 rounded-md">Save Changes</button>
                   </div>
                 </div>
               )}
@@ -692,6 +694,7 @@ function EditProfile() {
                       />
                     </div>
                   </div>
+                  <button type="submit" className="bg-teal-600 hover:bg-teal-700 w-full my-4 text-white px-4 py-2 rounded-md">Save Changes</button>
               </div>
               )}
             </div>
