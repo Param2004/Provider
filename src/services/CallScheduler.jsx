@@ -180,7 +180,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
           const razorpay_payment_id = response.razorpay_payment_id;
           const razorpay_order_id = response.razorpay_order_id;
           const razorpay_signature = response.razorpay_signature;
-          console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature);
           if(razorpay_order_id && razorpay_payment_id && razorpay_signature){
             handleScheduleCall(razorpay_payment_id, razorpay_order_id, razorpay_signature,amount);
           }
