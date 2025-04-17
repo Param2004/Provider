@@ -1,6 +1,12 @@
-import { Github, Twitter, Linkedin } from "lucide-react"
+import { Github, Twitter, Linkedin } from "lucide-react";
+import { useAuth } from '../../context/AuthContext';
+
 export default function Footer(){
+  const { isLoggedIn } = useAuth();
+
     return (
+      <>
+      {isLoggedIn ? (
         <footer className="bg-gray-900 text-white mt-20">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -60,6 +66,7 @@ export default function Footer(){
               <p>&copy; 2025 CollegeConnect. All rights reserved.</p>
             </div>
           </div>
-        </footer>
+        </footer>): null}
+        </>
     )
 }

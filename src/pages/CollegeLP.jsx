@@ -1,14 +1,9 @@
-// import Navbar from "../components/layout/Navbar";
 // import CollegeSlider from "../components/college/CollegeSlider";
-// import Footer from "../components/layout/Footer";
-
 
 
 // const CollegePage = () => {
 //     return (
 //       <div className="min-h-screen bg-white">
-//         <Navbar />
-  
 //         {/* Hero Section */}
 //         <div className="relative bg-gradient-to-r from-blue-200 to-purple-200 overflow-hidden">
 //           <div className="max-w-7xl mx-auto px-4 py-16">
@@ -57,7 +52,6 @@
 //           </div>
 //         </div>
 //         <CollegeSlider />
-//         <Footer />
 //       </div>
 //     )
 //   }

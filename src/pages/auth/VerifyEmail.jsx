@@ -2,7 +2,7 @@ import { ArrowLeft } from "lucide-react"
 
 export default function VerifyEmail() {
   return (
-    <div className="min-h-screen w-full bg-white p-4 md:p-6 lg:p-8">
+    <div className="absolute top-0 min-h-screen w-full bg-white p-4 md:p-6 lg:p-8">
       {/* Back Button */}
       <div className="mx-auto max-w-[480px] w-full">
         <a

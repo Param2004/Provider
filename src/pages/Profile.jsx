@@ -23,9 +23,8 @@ import {
   X,
   Camera,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import Navbar from "../components/layout/AuthNav";
-import Footer from "../components/layout/Footer";
+import { Link, Outlet } from "react-router-dom";
+
 
 const Profile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,8 +56,7 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Navbar />
-
+    <Outlet />
       {/* Main Content */}
       <main className="max-w-6xl mx-auto p-6">
         <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200">
@@ -91,7 +89,7 @@ const Profile = () => {
                 {isMenuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-10 overflow-hidden origin-top-right animate-in slide-in-from-top-2 duration-200">
                     <div className="py-1">
-                    <Link to="/edit-profile">
+                    <Link to="/profile/edit-profile">
                       <button className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150">
                         <Edit className="h-4 w-4 mr-2" />
                         Edit Profile
@@ -322,7 +320,6 @@ const Profile = () => {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   )
 }

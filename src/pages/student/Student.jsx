@@ -1,25 +1,51 @@
-import Navbar from "../../components/layout/AuthNav";
-import Footer from "../../components/layout/Footer";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CS from "../../services/CallScheduler";
-import StudentData from "../../data/StudentData";
+import axios from "axios";
+import DescriptionItem from '../../components/counsellor/Description';
+import HashLoader from "react-spinners/HashLoader";
+import { useAuth } from "../../context/AuthContext";
 
 
 const StudentPage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [item, setItem] = useState();
+  const { apiUrl, token } = useAuth();
 
-  const openPopup = () => {
+  const openPopup = (item) => {
     setIsOpen(true);
+    setItem(item);
   };
   const closePopup = () => setIsOpen(false);
+
+  const [studentData, setStudentData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    const fetchStudentData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`${apiUrl}college/studentlist`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+          }
+        });
+        setStudentData(response.data.data);
+      } catch (error) {
+        console.error('Error fetching student data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStudentData();
+  }, []);
 
 
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <Navbar />
-
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-6">
         <div className="flex items-center justify-between mb-6">
@@ -27,9 +53,19 @@ const StudentPage = () => {
         </div>
 
         {/* Counsellor Cards */}
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-10">
+            <HashLoader size={50} color="#3B82F6" loading={loading} />
+            <p className="text-gray-500 mt-4">Loading ...</p>
+          </div>
+        ) : studentData.length === 0 ? (
+          <div className="text-center py-10">
+            <p className="text-gray-500">No Student found</p>
+          </div>
+        ) : (
         <div className="grid gap-6">
-          {StudentData.map((item) => (
-            <div key={item.Name} className="rounded-lg border border-gray-300 p-6">
+          {studentData.map((item) => (
+            <div key={item._id} className="rounded-lg border border-gray-300 p-6">
               <div className="flex items-start justify-between">
                 <div className="flex gap-4">
                 <img
@@ -45,11 +81,7 @@ const StudentPage = () => {
                         <p className="text-sm text-gray-600">{item.Expertise}</p>
                       </div>
                     </div>
-
-                    <div className="mt-4">
-                      <h3 className="font-medium mb-2">About</h3>
-                      <p className="text-sm text-gray-600">{item.Description}</p>
-                    </div>
+                    <DescriptionItem description={item.Description} />
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
@@ -69,28 +101,29 @@ const StudentPage = () => {
                       />
                     </svg>
                   </button>
-                  <div className="flex items-center gap-1">
+                  {/* <div className="flex items-center gap-1">
                     <span className="font-medium text-gray-600">4.5</span>
                     <span className="text-gray-600 font-medium">/5</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center justify-between border-t border-gray-300 pt-4">
-                <div>
+              <div className="mt-4 flex items-center justify-center border-t border-gray-300 pt-4">
+                {/* <div>
                   <span className="text-indigo-600 font-medium">Counselling Fee</span>
                   <span className="ml-2">- Rs 500 / 2 hr</span>
-                </div>
-                <button onClick={openPopup} className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                </div> */}
+                <button onClick={() => openPopup(item)} className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                   Schedule a Call
                 </button>
               </div>
             </div>
           ))}
         </div>
+        )
+        }
       </main>
-      {isOpen && ( <CS onStateChange={closePopup} /> )}
-      <Footer />
+      {isOpen && ( <CS participantId={item._id} participantModel="studentlist" onStateChange={closePopup} /> )}
     </div>
   )
 }

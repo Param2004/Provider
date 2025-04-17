@@ -1,18 +1,38 @@
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FAQs from "../../components/college/FAQs"
-import CollegeData from "../../data/CData";
-import StudentData from "../../data/StudentData";
-import AlumniData from "../../data/AlumniData";
-import CS from "../../services/CallScheduler";
-
+// import StudentData from "../../data/StudentData";
+// import AlumniData from "../../data/AlumniData";
+// import CS from "../../services/CallScheduler";
+// import DescriptionItem from "../../components/counsellor/Description";
+import { useAuth } from '../../context/AuthContext';
+import axios from "axios";
 
 export default function CollegeDetails(){
     const { id } = useParams();
     const [showMore, setShowMore] = useState(false);
-    const college = CollegeData.find((c) => c.id.toString() === id);
+    const [collegeData, setCollegeData] = useState([]);
+    const { apiUrl, token } = useAuth();
+
+    useEffect(() => {
+    const fetchCollegeData = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}college/collegelist`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+          }
+        });
+        setCollegeData(response.data.data);
+      } catch (error) {
+        console.error('Error fetching college data:', error);
+      }
+    };
+    fetchCollegeData();
+  }, []);
+
+
+    const college = collegeData.find((c) => c._id === id);
 
     if (!college) return <p>College not found</p>;
     const toggleShowMore = () => setShowMore(!showMore);
@@ -35,13 +55,18 @@ export default function CollegeDetails(){
     };
 
 
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen1, setIsOpen1] = useState(false);
+    // const [isOpen2, setIsOpen2] = useState(false);
     
-      const openPopup = () => {
-        setIsOpen(true);
-      };
+    //   const openPopup1 = () => {
+    //     setIsOpen1(true);
+    //   };
+    //   const openPopup2 = () => {
+    //     setIsOpen2(true);
+    //   };
     
-      const closePopup = () => setIsOpen(false);
+    //   const closePopup1 = () => setIsOpen1(false);
+    //   const closePopup2 = () => setIsOpen2(false);
     
 
     // const handleDownload = async () => {
@@ -74,7 +99,6 @@ export default function CollegeDetails(){
 
     return (
         <>
-          <Navbar />
           <div className="min-h-screen bg-white">
             <div className="container mx-auto px-4 py-8">
               <div className="flex items-start justify-between mb-8">
@@ -195,34 +219,32 @@ export default function CollegeDetails(){
 
 
               {/* Alumni Section */}
-              {id=="1" && (
+              {/* {id=="67ff21820af3eeb3e5f10e06" && (
                 <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Alumni</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {AlumniData.map((i) => (
-                    <div key={`alumni-${i}`} className="border border-gray-300 rounded-lg p-6">
-                      <div className="flex items-start gap-3 mb-4">
+                    <div key={`alumni-${i.Name}`} className="border border-gray-300 rounded-lg p-6">
+                      <div className="flex items-stretch gap-3 mb-4">
                         <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
                           <img src={i.Profile} alt="Alumni" className="h-full w-full object-cover" />
                         </div>
                         <div>
                           <h3 className="font-medium">{i.Name}</h3>
-                          <p className="text-sm text-gray-600">{i.Bio}</p>
-                          <p className="text-sm text-gray-600">{i.Expertise}</p>
+                          <p className="text-sm line-clamp-1 text-gray-600">{i.Bio}</p>
+                          <p className="text-sm line-clamp-1 text-gray-600">{i.Expertise}</p>
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <h4 className="font-medium mb-1">About</h4>
-                        <p className="text-sm text-gray-600">{i.Description}</p>
-                      </div>
-                      <button onClick={openPopup} className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
+                      <DescriptionItem description={i.Description} />
+                      <button onClick={openPopup1} className="w-full my-4 py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
                         Schedule a Call
                       </button>
+                      {isOpen1 && ( <CS participantId={i._id} participantModel="alumnilist" onStateChange={closePopup1} /> )}
                     </div>
                   ))}
                 </div>
               </section>
-              )}
+              )} */}
               
               {/* Faculty Section */}
               {/* <section className="mb-12">
@@ -255,7 +277,7 @@ export default function CollegeDetails(){
               </section> */}
               
               {/* Students Section */}
-              {id=="1" && (
+              {/* {id=="67ff21820af3eeb3e5f10e06" && (
               <section className="my-12">
                 <h2 className="text-xl font-bold mb-6">Students</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -267,26 +289,22 @@ export default function CollegeDetails(){
                         </div>
                         <div>
                           <h3 className="font-medium">{i.Name}</h3>
-                          <p className="text-sm text-gray-600">{i.Bio}</p>
-                          <p className="text-sm text-gray-600">{i.Expertise}</p>
+                          <p className="text-sm line-clamp-1 text-gray-600">{i.Bio}</p>
+                          <p className="text-sm line-clamp-1 text-gray-600">{i.Expertise}</p>
                         </div>
                       </div>
-                      <div className="mb-4">
-                        <h4 className="font-medium mb-1">About</h4>
-                        <p className="text-sm text-gray-600">{i.Description}</p>
-                      </div>
-                      <button onClick={openPopup} className="w-full py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
+                      <DescriptionItem description={i.Description} />
+                      <button onClick={openPopup2} className="w-full my-4 py-2 px-4 bg-[#5751e1] hover:bg-[#2c26b0] text-white rounded-md transition-colors">
                         Schedule a Call
                       </button>
+                      {isOpen2 && ( <CS participantId={i._id} participantModel="studentlist" onStateChange={closePopup2} /> )}
                     </div>
                   ))}
                 </div>
               </section>
-              )}
+              )} */}
             </div>
           </div>
-          {isOpen && ( <CS onStateChange={closePopup} /> )}
-          <Footer />
         </>
     )
 }

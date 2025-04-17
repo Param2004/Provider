@@ -1,14 +1,10 @@
 import { useState } from "react"
-import Navbar from "../../components/layout/AuthNav"
 
 const Staff = () => {
   const [activeTab, setActiveTab] = useState("Upcoming")
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation Bar */}
-      <Navbar />
-
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-6">
         {/* Profile Section */}

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ChevronLeft, Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 
 export default function CreateAccount() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,6 +11,9 @@ export default function CreateAccount() {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [phoneValid, setPhoneValid] = useState(true);
   const [passwordValid, setPasswordValid] = useState(true);
+  const { apiUrl } = useAuth();
+
+  const navigate = useNavigate();
 
 
   const handleChange = (e) => {
@@ -34,22 +38,28 @@ export default function CreateAccount() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!passwordMatch || !phoneValid || !passwordValid) return;
-    const result = await axios.post('http://localhost:3000/user/SignUp', obj);
-    console.log(result);
+    try {
+      const result = await axios.post(`${apiUrl}user/SignUp`, obj);
+
+      console.log(result);
+
+      if (result.status === 201) {
+        navigate(`/verify-otp?phone=${obj.phone}&mode=signup`);
+      }
+    } catch (error) {
+      console.error("Signup failed:", error);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="absolute top-0 p-4 min-h-screen bg-slate-50">
       <div className="p-4 md:p-6">
         {/* Header */}
         <div className="mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700">
-            <ChevronLeft className="h-5 w-5" />
-            <div className="flex items-center gap-2">
-              <img src="/assets/images/logo.png" alt="College Connect Logo" className="h-6 w-6" />
-              <span className="font-medium">CollegeConnect</span>
-            </div>
-          </Link>
+          <div className="flex items-center gap-2">
+            <img src="/assets/images/logo.png" alt="College Connect Logo" className="h-6 w-6" />
+            <span className="font-medium">CollegeProvider</span>
+          </div>
         </div>
 
         {/* Main Content */}
@@ -147,7 +157,7 @@ export default function CreateAccount() {
                       {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
                   </div>
-                  <p className="text-xs text-gray-500">Must be at least 8 characters consist of first capital letter, 1 digit and 1 special character.</p>
+                  <p className="text-xs text-gray-500">Must be at least 8 characters consist of 1 capital letter, 1 digit and 1 special character (!@#$%^&*).</p>
                 </div>
 
                 {/* Confirm Password Input */}

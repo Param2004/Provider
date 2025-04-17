@@ -1,11 +1,8 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
 
 export default function Example() {
   return (
     <div className="bg-white">
-      <Navbar />
       <main className="overflow-hidden">
         {/* Header */}
         <div className="bg-warm-gray-50">
@@ -330,7 +327,6 @@ export default function Example() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

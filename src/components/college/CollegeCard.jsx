@@ -6,7 +6,7 @@ const CollegeCard = ({ college, colActiv }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className={`${colActiv ? "h-96" : "h-48"} w-full`}>
-        <Link to={`/college/${college.id}`}>
+        <Link to={`/college/${college._id}`}>
         <img src={college.imgLink} alt={college.name} className="w-full h-full cursor-pointer" />
         </Link>
       </div>
@@ -35,7 +35,7 @@ const CollegeCard = ({ college, colActiv }) => {
             <p className="text-sm text-gray-600">NAAC Grade</p>
             <p className="text-lg text-indigo-600 font-semibold">{college.naacGrade}</p>
           </div>
-          <Link to={`/college/${college.id}`}>
+          <Link to={`/college/${college._id}`}>
           <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors cursor-pointer">
             Details <ArrowRight className="h-4 w-4" />
           </button>

@@ -1,67 +1,79 @@
 import { useState } from "react"
-import { ArrowLeft, Eye, EyeOff } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Eye, EyeOff } from "lucide-react"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [obj, setObj] = useState({ phone: "", password: "" });
   const [phoneValid, setPhoneValid] = useState(true);
-
+  const navigate = useNavigate();
+  const { apiUrl } = useAuth();
 
   const handleChange = (e) => { 
-    
     const { name, value } = e.target;
     setObj({ ...obj, [name]: value });
-    
     if (name === "phone") {
       setPhoneValid(/^[6-9]\d{9}$/.test(value));
     }
-  
   };
 
   const handleSubmit = async (e) => {  
-
     e.preventDefault();
-
-    console.log(obj); 
-
-    const result = await axios.post('http://localhost:3000/user/login', obj);
-
-    console.log(result);
-
+    try {
+      const result = await axios.post(`${apiUrl}user/login`, obj);
+      if (result.status === 200) {
+        localStorage.setItem("authToken", result.data.token);
+        console.log(result.data.token);
+        navigate("/");
+      }
+    } catch (error) {
+      if (error.response) {
+        const { status, data } = error.response;
+        if (status === 400) {
+            alert("⚠️ " + data.message);
+        } else if (status === 401) {
+            alert("❌ Invalid credentials! Please check your password.");
+        } else if (status === 403) {
+            alert("🔒 Phone number not verified! Redirecting to OTP verification...");
+            navigate(`/verify-otp?phone=${obj.phone}&mode=signup`);
+        } else if (status === 404) {
+            alert("🚫 User not found! Please check your phone number.");
+        } else {
+            alert("❗ Internal server error! Please try again later.");
+        }
+      } else {
+        console.error("Login error:", error);
+        alert("Something went wrong. Please check your network.");
+      }
+    }
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="absolute top-0 min-h-screen bg-white p-4">
       {/* Header */}
-      <header className="p-4 flex items-center gap-2">
-      <Link to="/">
-        <button className="text-gray-600 hover:text-gray-900">
-          <ArrowLeft className="h-6 w-6" />
-        </button>
-      </Link>
+      <div className="p-4 md:p-6 ">
         <div className="flex items-center gap-2">
-          <img src="/assets/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
-          <span className="text-lg font-medium">CollegeConnect</span>
+          <img src="/assets/images/logo.png" alt="College Connect Logo" className="h-6 w-6" />
+          <span className="font-medium">CollegeProvider</span>
         </div>
-      </header>
-
-      {/* Main Content */}
+      </div>
+      
       <main className="container mx-auto px-4 mt-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Side - Illustration */}
-            <div className="hidden md:block">
+            <div className="flex items-center justify-center rounded-xl bg-slate-50 p-8">
               <img
                 src="/assets/images/login.png"
                 alt="Login Illustration"
-                className="w-full h-auto object-contain"
+                className="w-full max-w-md"
               />
             </div>
 
             {/* Right Side - Login Form */}
-            <div className="max-w-md w-full mx-auto space-y-8">
+            <div className="space-y-6">
               <div className="space-y-2">
                 <h1 className="text-4xl font-bold">Log in</h1>
                 <p className="text-gray-600">Enter your credentials</p>

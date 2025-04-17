@@ -1,33 +1,67 @@
 import FilterColleges from "../../components/college/FilterColleges";
-import CollegeData from "../../data/CData";
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LayoutGrid, List} from "lucide-react"
 import CollegeCard from "../../components/college/CollegeCard";
+import HashLoader from "react-spinners/HashLoader";
+import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
+
 
 const Property = () => {
-  const [filteredData, setFilteredData] = useState(CollegeData);
-
   const handleResetData = () => {
-    setFilteredData(CollegeData);
+    setCollegeData(collegeData);
   };
-
-  const handleFilterChange = (filteredData) => {
-    setFilteredData(filteredData);
+  const handleFilterChange = (collegeData) => {
+    setCollegeData(collegeData);
   };
+  const [loading, setLoading] = useState(true);
+  const [collegeData, setCollegeData] = useState([]);
   const [colActiv, setColActiv] = useState(false);
+  const { apiUrl, token } = useAuth();
+  
+
+
+
+  useEffect(() => {
+    const fetchCollegeData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`${apiUrl}college/collegelist`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+          }
+        });
+        setCollegeData(response.data.data);
+      } catch (error) {
+        console.error('Error fetching college data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCollegeData();
+  }, []);
 
 
   return (
     <>
-      <Navbar />
-      <FilterColleges data={CollegeData} onFilterChange={handleFilterChange} onReset={handleResetData} />
-      {/* Results Section */}
+      {loading ? (
+          <div className="flex flex-col items-center justify-center min-h-screen py-10">
+            <HashLoader size={50} color="#3B82F6" loading={loading} />
+            <p className="text-gray-500 mt-4">Loading ...</p>
+          </div>
+        ) : collegeData.length === null ? (
+          <div className="text-center py-10 min-h-screen">
+            <p className="text-gray-500">No College found</p>
+          </div>
+        ) : (
+      <div>
+      <FilterColleges data={collegeData} onFilterChange={handleFilterChange} onReset={handleResetData} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <p className="text-gray-600 mb-4 sm:mb-0">
-            Showing <span className="text-indigo-600 font-medium">{filteredData.length}</span> colleges
+            Showing <span className="text-indigo-600 font-medium">{collegeData.length}</span> colleges
           </p>
           <div className="flex items-center space-x-4">
             {/* <select className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -56,16 +90,17 @@ const Property = () => {
           </div>
         </div>
 
-        {/* College Grid/List */}
         <main className="container mx-auto px-4 py-8">
         <div className={`grid grid-cols-1 md:${colActiv ? "grid-cols-1" : "grid-cols-2"} lg:${colActiv ? "grid-cols-2" : "grid-cols-3"} gap-6`}>
-          {filteredData.map((college) => (
-            <CollegeCard key={college.id} college={college} colActiv={colActiv} />
+          {collegeData.map((college) => (
+            <CollegeCard key={college._id} college={college} colActiv={colActiv} />
           ))}
         </div>
       </main>
       </div>
-      <Footer />
+      </div>
+      )
+      }
     </>
   );
 };

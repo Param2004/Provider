@@ -1,10 +1,46 @@
 import { ArrowLeft } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react";
+import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 
 export default function ForgotPassword() {
 
+  const [obj, setObj] = useState({ phone: "" });
+  const [phoneValid, setPhoneValid] = useState(true);
+  const navigate = useNavigate();
+  const { apiUrl } = useAuth();
+
+  const handleChange = (e) => { 
+    
+    const { name, value } = e.target;
+    setObj({ ...obj, [name]: value });
+    
+    if (name === "phone") {
+      setPhoneValid(/^[6-9]\d{9}$/.test(value));
+    }
+  
+  };
+
+  const handleSubmit = async (e) => {  
+    e.preventDefault();
+    
+    try {
+      const result = await axios.post(`${apiUrl}password/request-password-reset`, obj);
+
+      console.log(result);
+
+      if (result.status === 200) {
+        navigate(`/verify-otp?phone=${obj.phone}&mode=forgot-password`);
+      }
+    } 
+    catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="absolute top-0 p-4 min-h-screen bg-white">
       {/* Header */}
       <header className="p-4 flex items-center gap-2">
       <Link to="/login">
@@ -14,7 +50,7 @@ export default function ForgotPassword() {
       </Link>
         <div className="flex items-center gap-2">
           <img src="/assets/images/logo.png" alt="College Connect Logo" className="w-6 h-6 object-contain" />
-          <span className="text-lg font-medium">CollegeConnect</span>
+          <span className="text-lg font-medium">CollegeProvider</span>
         </div>
       </header>
 
@@ -38,10 +74,10 @@ export default function ForgotPassword() {
                 <p className="text-gray-600">Forgot your password ?</p>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium">
+                    <label htmlFor="mobile" className="block text-sm font-medium">
                       Enter Your Mobile Number
                     </label>
                     <div className="flex">
@@ -50,21 +86,22 @@ export default function ForgotPassword() {
                       </div>
                       <input
                         id="mobile"
+                        required
                         type="tel"
-                        className="w-full rounded-r-md border border-gray-200 px-3 py-2 focus:border-indigo-600 focus:outline-none focus:ring-1 focus:ring-indigo-600"
+                        name="phone"
+                        onChange={handleChange}
+                        className={`w-full rounded-md border px-3 py-2 pr-10 border-gray-300 focus:outline-none focus:ring-1 ${phoneValid ? 'focus:ring-indigo-600' : 'focus:ring-red-500'}`}
                       />
                     </div>
                   </div>
                 </div> 
 
-                <Link to="/verify-otp">
-                  <button
-                    type="submit"
-                    className="w-full bg-[#2c26b0] hover:bg-[#2c26b0]/90 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
-                  >
-                    Continue
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  className="w-full bg-[#2c26b0] hover:bg-[#2c26b0]/90 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+                >
+                  Continue
+                </button>
               </form>
             </div>
           </div>

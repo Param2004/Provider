@@ -1,7 +1,6 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useState, useRef, useEffect } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
   BookmarkAltIcon,
   BriefcaseIcon,
@@ -21,10 +20,10 @@ import {
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-// import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Phone, MessageCircle, ArrowUp } from "lucide-react"
+import { useAuth } from '../../context/AuthContext';
 
-const solutions = [
+const Menu = [
   {
     name: 'Home',
     description: 'Get a better understanding of where your traffic is coming from.',
@@ -45,50 +44,11 @@ const solutions = [
     icon: CursorClickIcon,
   },
 ]
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'View All Products', href: '#', icon: CheckCircleIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-]
-const company = [
-  { name: 'About', href: '#', icon: InformationCircleIcon },
-  { name: 'Customers', href: '#', icon: OfficeBuildingIcon },
-  { name: 'Press', href: '#', icon: NewspaperIcon },
-  { name: 'Careers', href: '#', icon: BriefcaseIcon },
-  { name: 'Privacy', href: '#', icon: ShieldCheckIcon },
-]
-const resources = [
-  { name: 'Community', href: '#', icon: UserGroupIcon },
-  { name: 'Partners', href: '#', icon: GlobeAltIcon },
-  { name: 'Guides', href: '#', icon: BookmarkAltIcon },
-  { name: 'Webinars', href: '#', icon: DesktopComputerIcon },
-]
-const blogPosts = [
-  {
-    id: 1,
-    name: 'Boost your conversion rate',
-    href: '#',
-    preview: 'Eget ullamcorper ac ut vulputate fames nec mattis pellentesque elementum. Viverra tempor id mus.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1558478551-1a378f63328e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80',
-  },
-  {
-    id: 2,
-    name: 'How to use search engine optimization to drive traffic to your site',
-    href: '#',
-    preview: 'Eget ullamcorper ac ut vulputate fames nec mattis pellentesque elementum. Viverra tempor id mus.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2300&q=80',
-  },
-]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Example() {
-
-
   const FloatingActions = () => {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" })
@@ -117,88 +77,133 @@ export default function Example() {
       </div>
     )
   }
+  // const navigate = useNavigate();
+  const dropdownRef = useRef(null)
+  const { isLoggedIn, userProfile, handleLogout, isDropdownOpen, setIsDropdownOpen } = useAuth();
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false)
+      }
+    }
 
-
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
 
   return (
     <>
-    <Popover className="relative bg-white">
-      <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
+    {isLoggedIn ? (
+    <Popover className="fixed top-0 bg-white z-30 w-full">
+      <div className="absolute inset-0  pointer-events-none" aria-hidden="true" />
       <div className="relative z-20">
-        <div className="mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-16 md:justify-start md:space-x-10">
-        <div className="flex items-center gap-2 text-xl font-bold">
-            <img 
+        <div className="mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-16">
+          <div className="flex items-center text-xl font-bold">
+            {/* <img 
               src="/assets/images/logo.png" 
               alt="CollegeConnect Logo" 
               className="w-10 h-10" 
-            />
-            <span className='text-gray-800'>CollegeConnect</span>
+            /> */}
+            <span className='text-black'>College</span>
+            <span className='text-indigo-600'>Provider</span>
           </div>
-          <div className="absolute right-6 lg:hidden">
+          <div className="lg:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
 
+            <div className="hidden lg:flex-1 lg:flex lg:justify-center">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  classNames(
+                    'transition duration-300 hover:-translate-y-0.5 px-5',
+                    isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                  )
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/colleges"
+                className={({ isActive }) =>
+                  classNames(
+                    'transition duration-300 hover:-translate-y-0.5 px-5',
+                    isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                  )
+                }
+              >
+                College
+              </NavLink>
+              <NavLink
+                to="/college-predictor"
+                className={({ isActive }) =>
+                  classNames(
+                    'transition duration-300 hover:-translate-y-0.5 px-5',
+                    isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                  )
+                }
+              >
+                College Predictor
+              </NavLink>
+              <NavLink
+                to="/about-us"
+                className={({ isActive }) =>
+                  classNames(
+                    'transition duration-300 hover:-translate-y-0.5 px-5',
+                    isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
+                  )
+                }
+              >
+                About Us
+              </NavLink>
+            </div>
+          
 
-          <div className="hidden lg:flex-1 lg:flex lg:justify-center">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                classNames(
-                  'transition duration-300 hover:-translate-y-0.5 px-5',
-                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-                )
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/colleges"
-              className={({ isActive }) =>
-                classNames(
-                  'transition duration-300 hover:-translate-y-0.5 px-5',
-                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-                )
-              }
-            >
-              College
-            </NavLink>
-            <NavLink
-              to="/college-predictor"
-              className={({ isActive }) =>
-                classNames(
-                  'transition duration-300 hover:-translate-y-0.5 px-5',
-                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-                )
-              }
-            >
-              College Predictor
-            </NavLink>
-            <NavLink
-              to="/about-us"
-              className={({ isActive }) =>
-                classNames(
-                  'transition duration-300 hover:-translate-y-0.5 px-5',
-                  isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600 hover:text-indigo-600'
-                )
-              }
-            >
-              About Us
-            </NavLink>
-          </div>
+          
+            <div className="relative" ref={dropdownRef}>
+                <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center gap-2 hover:bg-gray-100 rounded-full py-1 px-2"
+                >
+                <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
+                  <img
+                    src="/placeholder.svg"
+                    alt="User avatar"
+                    className="h-8 w-8 rounded-full"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                      e.target.parentElement.innerHTML = userProfile.name.charAt(0).toUpperCase();
+                    }}
+                  />
+                </div>
+                <span className="text-sm font-medium">{userProfile.name}</span>
+                </button>
 
-
-
-          {/* <div className="hidden lg:flex-1 lg:flex lg:justify-center">
-            <Link to="/" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">Home</Link>
-            <Link to="/about-us" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">About Us</Link>
-            <Link to="/college" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">College</Link>
-            <Link to="#" className="text-gray-600 hover:text-indigo-600 active:text-indigo-600 transition duration-300 hover:-translate-y-0.5 px-5">College Predictor</Link>
-          </div> */}
-          <div className="lg:flex items-center md:ml-12 hidden">
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                <div className="absolute right-0 mt-6 w-48 bg-white rounded-md py-1 z-10 border border-gray-300">
+                  <Link to="/profile" onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="block px-4 py-2 text-sm text-gray-700 hover:text-indigo-600">
+                    Profile
+                  </Link>
+                  <Link to="/meetings" onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="block px-4 py-2 text-sm text-gray-700 hover:text-indigo-600">
+                    Upcoming meetings
+                  </Link>
+                  <button onClick={handleLogout} className="w-full text-left px-4 py-2 rounded-md shadow-sm cursor-pointer text-base font-medium text-indigo-500 hover:text-indigo-800">
+                    Log out
+                  </button>
+                </div>
+                )}
+              </div>
+        
+            {/* <div className="lg:flex items-center md:ml-12 hidden">
             <Link to="/login" className="text-base font-medium text-gray-500 hover:text-indigo-600 transition duration-300 hover:-translate-y-0.5">
               Log in
             </Link>
@@ -208,7 +213,8 @@ export default function Example() {
             >
               Sign up
             </Link>
-          </div>
+          </div> */}
+        
         </div>
       </div>
 
@@ -228,92 +234,81 @@ export default function Example() {
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5 sm:pb-8">
               <div className="flex items-center justify-between">
-              <div className="flex items-center  gap-2 text-xl font-bold">
-                <img 
-                src="assets/images/logo.png" 
-                alt="CollegeConnect Logo" 
-                className="w-10 h-10" 
-                />
-                <span>CollegeConnect</span>
-              </div>
+                <div className="py-6 px-5">
+
+                  <div className="relative" ref={dropdownRef}>
+                    <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="flex items-center gap-2 hover:bg-gray-100 rounded-full py-1 px-2"
+                    >
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
+                      <img
+                        src="/placeholder.svg"
+                        alt="User avatar"
+                        className="h-8 w-8 rounded-full"
+                        onError={(e) => {
+                          e.target.style.display = "none"
+                          const firstLetter = userProfile.name.charAt(0).toUpperCase(); // Get the first letter of the user's name
+                          const initialsElement = document.createElement("span"); // Create a new span element
+                          initialsElement.textContent = firstLetter; // Set the text to the first letter
+                          initialsElement.className = "h-8 w-8 flex items-center justify-center rounded-full bg-gray-300 text-white"; // Add classes for styling
+                          e.target.parentElement.appendChild(initialsElement);
+                        }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium">{userProfile.name}</span>
+                    </button>
+                      
+                    {/* Dropdown Menu */}
+                    {isDropdownOpen && (
+                    <div className="absolute mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-30 border border-gray-200">
+                      <Link to="/profile" onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="block px-4 py-2 text-sm text-gray-700 hover:text-indigo-600">
+                        Profile
+                      </Link>
+                      <Link to="/meetings" onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="block px-4 py-2 text-sm text-gray-700 hover:text-indigo-600">
+                        Upcoming meetings
+                      </Link>
+                      <button onClick={handleLogout} className="w-full text-left px-4 py-2 rounded-md shadow-sm cursor-pointer text-base font-medium text-indigo-500 hover:text-indigo-800">
+                        Log out
+                      </button>
+                    </div>
+                    )}
+                  </div>
+                </div>
+
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 cursor-pointer">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>
-              <div className="mt-6 sm:mt-8">
-                <nav>
-                  <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                    {solutions.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
-                      >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                          <item.icon className="h-6 w-6" aria-hidden="true" />
-                        </div>
-                        <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
-                      </Link>
-                    ))}
-                  </div>
-                  {/* <div className="mt-8 text-base">
-                    <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                      {' '}
-                      View all products <span aria-hidden="true">&rarr;</span>
-                    </a>
-                  </div> */}
-                </nav>
-              </div>
-            </div>
-            <div className="py-6 px-5">
-              {/* <div className="grid grid-cols-2 gap-4">
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Pricing
-                </a>
-
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Docs
-                </a>
-
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Company
-                </a>
-
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Resources
-                </a>
-
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Blog
-                </a>
-
-                <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
-                  Contact Sales
-                </a>
-              </div> */}
-              <div className="mt-6">
-                <Link
-                  to="/register"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Sign up
-                </Link>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{' '}
-                  <Link to="/login" className="text-indigo-600 hover:text-indigo-500">
-                    Log in
-                  </Link>
-                </p>
-              </div>
+                <div className="mt-6 sm:mt-8">
+                  <nav>
+                    <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
+                      {Menu.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
+                        >
+                          <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                            <item.icon className="h-6 w-6" aria-hidden="true" />
+                          </div>
+                          <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  </nav>
+                </div>
             </div>
           </div>
         </Popover.Panel>
       </Transition>
+      <FloatingActions />
     </Popover>
-    <FloatingActions />
+    ) : null 
+    }
     </>
   )
 }

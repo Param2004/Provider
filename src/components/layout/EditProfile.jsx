@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Navbar from "./AuthNav";
-import Footer from "./Footer";
 import { Phone, Video, MessageCircle, X, Search, CalendarIcon } from "lucide-react";
 import { format } from "date-fns"
 
@@ -294,8 +292,6 @@ function EditProfile() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
-      <Navbar />
-
       {/* Main Content */}
       <div className="container mx-auto px-4 py-6 flex gap-8">
         {/* Left Column - Profile */}
@@ -414,7 +410,7 @@ function EditProfile() {
 
         {/* Right Column - Form */}
         <div className="w-full">
-          <div className="space-y-4">
+          <div className="space-y-8">
             {/* Basic Info */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200">
               <div
@@ -701,7 +697,6 @@ function EditProfile() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
