@@ -46,13 +46,14 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
         // Extract only hours from ISO datetime string
         bookedHours = bookedCalls.map(call => {
           const date = new Date(call.dateTime);
-          return date.getHours(); // Only the hour part
+          return date.getHours()-5; // Only the hour part
         });
   
         setBookedSlots(bookedCalls); // Optional if you need full data elsewhere
       } catch (error) {
         console.error('Error fetching Slots data:', error);
       }
+      console.log(bookedHours)
   
       // Generate only available slots
       const availableSlots = [];
@@ -66,7 +67,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
           end.setHours(hour + 1, 0, 0, 0);
   
           availableSlots.push({
-            id: `${hour}:00`,
+            id: `${String(hour).padStart(2, '0')}:00`,
             label: `${formatTime(start)} - ${formatTime(end)}`
           });
         }
