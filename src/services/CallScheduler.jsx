@@ -157,7 +157,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
     const currency = "INR";
 
     try {
-      const order = await axios.post(`${apiUrl}/payment/create-order`, {
+      const order = await axios.post(`${apiUrl}payment/create-order`, {
           amount,
           currency,
         },
@@ -180,7 +180,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
           const razorpay_payment_id = response.razorpay_payment_id;
           const razorpay_order_id = response.razorpay_order_id;
           const razorpay_signature = response.razorpay_signature;
-          // console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature);
+          console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature);
           if(razorpay_order_id && razorpay_payment_id && razorpay_signature){
             handleScheduleCall(razorpay_payment_id, razorpay_order_id, razorpay_signature,amount);
           }
@@ -504,6 +504,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
                       Slots Available 
                       {/* <span className="text-gray-500 text-sm">(4 slots)</span> */}
                     </h2>
+                    {slots.length == "0" ? (<p>No slots available</p>) : (
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {slots.map((slot, index) => (
                         <div
@@ -515,6 +516,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
                         </div>
                       ))}
                     </div>
+                    )}
                   </div>
                     
                   {/* Submit button */}
