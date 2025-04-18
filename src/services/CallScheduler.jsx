@@ -31,7 +31,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
       const currentHour = now.getHours();
       const nextHour = currentHour + 1;
       const startHour = Math.max(nextHour, 9);
-      const endHour = 24;
+      const endHour = 21;
   
       // Fetch booked calls
       let bookedHours = [];
