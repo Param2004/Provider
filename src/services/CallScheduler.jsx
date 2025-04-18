@@ -14,6 +14,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { apiUrl, currentDate, decodedToken, token } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [loadingSlots, setLoadingSlots] = useState(false);
 
   // State for selections
   const [callType, setCallType] = useState("");
@@ -30,11 +31,12 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
       const currentHour = now.getHours();
       const nextHour = currentHour + 1;
       const startHour = Math.max(nextHour, 9);
-      const endHour = 21;
+      const endHour = 24;
   
       // Fetch booked calls
       let bookedHours = [];
       try {
+        setLoadingSlots(true);
         const response = await axios.get(`${apiUrl}user/getParticipantCalls`, {
           params: { 
             participantId,
@@ -50,14 +52,17 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
         // Extract only hours from ISO datetime string
         bookedHours = bookedCalls.map(call => {
           const date = new Date(call.dateTime);
-          return date.getHours()-5; // Only the hour part
+          const time = date.getHours()-5;
+          return time<0 ? time+24 : time; // Only the hour part
         });
+        console.log(bookedHours);
   
         setBookedSlots(bookedCalls); // Optional if you need full data elsewhere
       } catch (error) {
         console.error('Error fetching Slots data:', error);
+      } finally {
+        setLoadingSlots(false);
       }
-      console.log(bookedHours)
   
       // Generate only available slots
       const availableSlots = [];
@@ -162,6 +167,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
     const currency = "INR";
 
     try {
+      setLoading(true);
       const order = await axios.post(`${apiUrl}payment/create-order`, {
           amount,
           currency,
@@ -217,6 +223,8 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
 
     } catch (error) {
       console.error("Order failed:", error);
+    } finally {
+      setLoading(false);
     }
   }
   
@@ -237,7 +245,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
     };
   
     try {
-      setLoading(true);
       const response = await axios.post(`${apiUrl}user/ScheduleCall`, requestData,
         {
           headers: {
@@ -247,7 +254,10 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
         }
       );
 
-      if(response.status === 201 ) setIsSubmitted(true);
+      if(response.status === 201 ) {
+        // setLoading(false);
+        setIsSubmitted(true);
+      }
       setTimeout(() => {
         onStateChange(false);
       }, 1500);
@@ -256,8 +266,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
       if(error.response.data.message === "You already have a call at this time."){
         alert("You already have a call at this time book another slot");
       }
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -272,13 +280,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
   // ]
 
   return (
-    <>
-    {loading ? (
-              <div className="flex flex-col items-center justify-center min-h-screen py-10">
-                <HashLoader size={50} color="#3B82F6" loading={loading} />
-                <p className="text-gray-500 mt-4">Scheduling Call ...</p>
-              </div>
-            ) : (
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-30 flex items-center justify-center bg-black/10"
@@ -307,7 +308,14 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
               <p className="text-green-600 mt-2">Submitted Successfully!</p>
               </motion.div>
             ) : (
+
             <div className="bg-gray-50 text-gray-800 p-4 flex justify-center">
+            {loading ? (
+              <div className="flex flex-col items-center justify-center min-h-screen py-10">
+                <HashLoader size={50} color="#3B82F6" loading={loading} />
+                <p className="text-gray-500 mt-4">Scheduling Call ...</p>
+              </div>
+            ) : (
               <div className="bg-white rounded-xl shadow-md p-4">
                 <div className="space-y-4">
                   {/* Select mode to connect */}
@@ -518,7 +526,12 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
                       Slots Available 
                       {/* <span className="text-gray-500 text-sm">(4 slots)</span> */}
                     </h2>
-                    {slots.length == "0" ? (<p>No slots available</p>) : (
+                    {loadingSlots ? (
+              <div className="flex flex-col items-center justify-center py-10">
+                <HashLoader size={50} color="#3B82F6" loading={loadingSlots} />
+                <p className="text-gray-500 mt-4">Loading available slots ...</p>
+              </div>
+            ) : slots.length === 0 ? (<p>No slots available for today! Come back Tomorrow.</p>) : (
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {slots.map((slot, index) => (
                         <div
@@ -541,6 +554,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
                   </div>
                 </div>
               </div>
+            )}
               <div>
                 <X onClick={closePopup} className="cursor-pointer h-6 w-6" />
               </div>
@@ -549,8 +563,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
         </motion.div>
       </motion.div>
     </AnimatePresence>
-            )}
-            </>
   )
 }
 
