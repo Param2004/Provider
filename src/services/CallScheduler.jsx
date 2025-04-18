@@ -55,7 +55,6 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
           const time = date.getHours()-5;
           return time<0 ? time+24 : time; // Only the hour part
         });
-        console.log(bookedHours);
   
         setBookedSlots(bookedCalls); // Optional if you need full data elsewhere
       } catch (error) {
