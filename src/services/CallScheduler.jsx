@@ -5,12 +5,16 @@ import { CheckCircle, MessageCircle, Phone, Video } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useAuth } from '../context/AuthContext';
+import HashLoader from "react-spinners/HashLoader";
+
 
 
 
 function CallScheduler({participantId, participantModel, onStateChange}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { apiUrl, currentDate, decodedToken, token } = useAuth();
+  const [loading, setLoading] = useState(false);
+
   // State for selections
   const [callType, setCallType] = useState("");
   const [duration, setDuration] = useState();
@@ -233,6 +237,7 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
     };
   
     try {
+      setLoading(true);
       const response = await axios.post(`${apiUrl}user/ScheduleCall`, requestData,
         {
           headers: {
@@ -241,8 +246,8 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
           }
         }
       );
-      console.log("Call scheduled successfully:", response);
-      setIsSubmitted(true);
+
+      if(response.status === 201 ) setIsSubmitted(true);
       setTimeout(() => {
         onStateChange(false);
       }, 1500);
@@ -251,6 +256,8 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
       if(error.response.data.message === "You already have a call at this time."){
         alert("You already have a call at this time book another slot");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -265,6 +272,13 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
   // ]
 
   return (
+    <>
+    {loading ? (
+              <div className="flex flex-col items-center justify-center min-h-screen py-10">
+                <HashLoader size={50} color="#3B82F6" loading={loading} />
+                <p className="text-gray-500 mt-4">Scheduling Call ...</p>
+              </div>
+            ) : (
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-30 flex items-center justify-center bg-black/10"
@@ -535,6 +549,8 @@ function CallScheduler({participantId, participantModel, onStateChange}) {
         </motion.div>
       </motion.div>
     </AnimatePresence>
+            )}
+            </>
   )
 }
 
